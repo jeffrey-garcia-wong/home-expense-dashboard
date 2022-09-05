@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -189,6 +189,17 @@ function App() {
     },    
   };  
 
+  const handleMenuClick = (ev:MouseEvent) => {
+    console.log(`{ev.target}`);
+    const dropDownMenu = (ev.target as Element).nextElementSibling as HTMLElement;
+    console.log(dropDownMenu);
+    if (dropDownMenu.style.display === "block") {
+      dropDownMenu.style.display = "none";
+    } else {
+      dropDownMenu.style.display = "block";
+    }
+  };
+
   return (
     <div>
       <div className="header">
@@ -198,10 +209,17 @@ function App() {
       <div className="row">
         <div className="col-3 col-s-3 menu">
           <ul>
-            <li>Expenses</li>          
-            <li>Investments</li>
-            <li>Outstanding</li>
-            <li>Tax</li>    
+            <li>
+              <a href="#" onClick={handleMenuClick}>Expenses</a>
+              <div className="drop-down-menu">
+                <a href="#">Monthly Overall</a>
+                <a href="#">Monthly Trend</a>
+              </div>
+            </li>
+            <li><a href="#">Investments</a></li>
+            <li><a href="#">Tax</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Outstanding</a></li>
           </ul>
         </div>
 
