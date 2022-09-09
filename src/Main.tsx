@@ -1,8 +1,6 @@
 import { MouseEvent } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-import Side from './Side';
-
 const Main = () => {
     const handleMenuClick = (ev:MouseEvent) => {
         // console.log(`{ev.target}`);
@@ -48,12 +46,8 @@ const Main = () => {
                     </ul>  
                 </div>
 
-                <div className="col-6 col-s-9">
+                <div>
                     <Outlet />
-                </div>
-
-                <div className="col-3 col-s-12">
-                    <Side />
                 </div>
             </div>
 

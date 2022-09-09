@@ -10,6 +10,8 @@ import {
 
 import { Pie } from 'react-chartjs-2';
 
+import Side from '../../Side';
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -78,9 +80,14 @@ const FixedExpBreakdown = () => {
 
     return (
         <div>
-            <h1>Fixed Expenses Breakdown</h1>
-            <div>
-                <Pie options={pieOptions} data={pieData} />
+            <div className="col-6 col-s-9">
+                <h1>Fixed Expenses Breakdown</h1>
+                <div>
+                    <Pie options={pieOptions} data={pieData} />
+                </div>
+            </div>
+            <div className="col-3 col-s-12">
+                <Side />
             </div>
         </div>
     );
