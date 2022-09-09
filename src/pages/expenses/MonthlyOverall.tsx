@@ -10,6 +10,8 @@ import {
   
 import { Bar } from 'react-chartjs-2';
 
+import Side from '../../Side';
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -67,9 +69,14 @@ const MonthlyOverall = () => {
         
     return (
         <div>
-            <h1>Monthly Overall Expenses</h1>
-            <div>
-                <Bar options={chartOptions} data={chartData} />
+            <div className="col-6 col-s-9">
+                <h1>Monthly Overall Expenses</h1>
+                <div>
+                    <Bar options={chartOptions} data={chartData} />
+                </div>
+            </div>
+            <div className="col-3 col-s-12">
+                <Side />
             </div>
         </div>
     );
