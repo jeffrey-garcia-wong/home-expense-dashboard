@@ -23,47 +23,76 @@ ChartJS.register(
 
 const MonthlyOverall = () => {
     const chartData = {
-        labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
         datasets: [
             {
-                label: 'Overall expenses per month',
-                data: [3418.1, 3636.56, 3926.63, 3931.46, 3528.26],
+                label: 'Fixed expenses per month',
+                data: [2150.84, 2150.84, 2150.84, 2150.84, 2150.84, 2167.08],
                 backgroundColor: [
-                    // 'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    // 'rgba(255, 206, 86, 0.2)',
-                    // 'rgba(75, 192, 192, 0.2)',
-                    // 'rgba(153, 102, 255, 0.2)',
-                    // // 'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.2)',
                 ],
                 borderColor: [
-                    // 'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
+                    'rgba(255, 99, 132, 1)',
                 ],
                 borderWidth: 1
-            }
+            },
+            {
+                label: 'Utility expenses per month',
+                data: [470.96, 428.47, 560.82, 529.97, 538.77, 398.82],
+                backgroundColor: [
+                    'rgba(255, 206, 86, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 206, 86, 1)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Miscellaneous expenses per month',
+                data: [1029.69, 1578.91, 1420.97, 3119.75, 5493.09, 3841.80],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            },              
         ]
     };
 
     const chartOptions = {
         responsive: true,
         scales: {
-          y: {
-              beginAtZero: true
-          }
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true,
+                ticks: {
+                    stepSize: 100
+                }                    
+            },
         },
         plugins: {
-          legend: {
-            position: 'top' as const,
-          },
-          title: {
-            display: true,
-            text: 'Monthly overall expenses in GBP (£)',
-          },
+            tooltip: {
+                callbacks: {
+                    footer: function(items:any) {
+                        var total = 0;
+                        for (var i = 0; i < chartData['datasets'].length; i++){
+                            total += chartData['datasets'][i].data[items[0].dataIndex];
+                        }
+                        return 'Total: ' + total 
+                      }
+                }
+            },
+            legend: {
+                position: 'top' as const,
+            },
+            title: {
+                display: true,
+                text: 'Monthly overall expenses in GBP (£)',
+            },
         },     
     };    
         

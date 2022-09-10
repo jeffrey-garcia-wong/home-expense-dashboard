@@ -21,17 +21,19 @@ ChartJS.register(
     ArcElement
 );
 
-const FixedExpBreakdown = () => {
-
+const MiscExpBreakdown = () => {
     const pieData = {
-        labels: ['Mortgage', 'Home Insurance', 'Property Management', 
-        'Broadband', 'Mobile SIM', 'Security System', 
-        'Water Softener', 'Council Tax', 'Pipes Insurance', 
-        'Car Insurance', 'Car Road Tax', 'Car MOT'],
+        labels: [
+            'Marketing', 'Outdoor Dining',
+            'Allen Swim+ Summer Course', 'Audrey Swim+ Summer Course', 
+            'Air Conditioner (outstanding)', 'Allen Swim+ New Term',
+            'Audrey Swim+ New Term', 'Easigrass (deposit)',
+            'Audrey French Class'
+        ],
         datasets: [
             {
-                label: 'Fixed Expenses Breakdown',
-                data: [1576.40, 25.16, 15.22, 63, 20, 43, 35.9, 213, 6, 153.16, 135, 13.56, 4.6],
+                label: 'Misc. Expenses Breakdown',
+                data: [559.43, 181.49, 65, 65, 745.5, 125.3, 125.3, 1862.78, 112],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -42,9 +44,6 @@ const FixedExpBreakdown = () => {
                     'rgba(255, 64, 0, 0.2)',
                     'rgba(191, 255, 0, 0.2)',
                     'rgba(191, 0, 255, 0.2)',
-                    'rgba(255, 0, 128, 0.2)',
-                    'rgba(128, 0, 255, 0.2)',
-                    'rgba(0, 255, 255, 0.2)',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -56,15 +55,12 @@ const FixedExpBreakdown = () => {
                     'rgba(255, 64, 0, 1)',
                     'rgba(191, 255, 0, 1)',
                     'rgba(191, 0, 255, 1)',
-                    'rgba(255, 0, 128, 1)',
-                    'rgba(128, 0, 255, 1)',
-                    'rgba(0, 255, 255, 1)',
                 ],
-                borderWidth: 1,        
+                borderWidth: 1,                 
             }
-        ]   
-    };
-      
+        ]
+    }
+
     const pieOptions = {
         responsive: true,
         plugins: {
@@ -75,13 +71,13 @@ const FixedExpBreakdown = () => {
                 display: true,
                 text: 'Fixed expenses breakdown in GBP (£) of current month',
             }         
-        },       
+        }        
     }
 
     return (
         <div>
             <div className="col-6 col-s-9">
-                <h1>Fixed Expenses Breakdown</h1>
+                <h1>Misc. Expenses Breakdown</h1>
                 <div>
                     <Pie options={pieOptions} data={pieData} />
                 </div>
@@ -93,4 +89,4 @@ const FixedExpBreakdown = () => {
     );
 }
 
-export default FixedExpBreakdown;
+export default MiscExpBreakdown;
