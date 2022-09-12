@@ -23,30 +23,36 @@ ChartJS.register(
     LineElement,
 );
 
-const MonthlyTrend = () => {
+const MonthlyUtilityExpTrend = () => {
     const lineData = {
         labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
         datasets: [
             {
-                label: 'Fixed expenses',
-                data: [2150.84, 2150.84, 2150.84, 2150.84, 2150.84, 2167.08],
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                label: 'Electricity',
+                data: [71.92, 71.92, 71.92, 71.92, 71.92, 71.92],
+                borderColor: 'rgb(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
             },
             {
-                label: 'Utility expenses',
-                data: [470.96, 428.47, 560.82, 529.97, 538.77, 398.82],
-                borderColor: 'rgb(53, 162, 235)',
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                label: 'Gas',
+                data: [41.03, 41.03, 41.03, 41.03, 41.03, 41.03],
+                borderColor: 'rgba(255, 206, 86, 1)',
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',                
             },
             {
-                label: 'Miscellaneous expenses',
-                data: [1029.69, 1578.91, 1420.97, 3119.75, 5493.09, 3841.80],
+                label: 'Water',
+                data: [47.52, 47.52, 47.52, 47.52, 47.52, 47.52],                
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            },      
-        ],
-    };
+            },
+            {
+                label: 'Petrol',
+                data: [168.41, 125.92, 258.27, 227.42, 236.22, 96.27],
+                borderColor: 'rgba(153, 102, 255, 1)',
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            },            
+        ],        
+    }
 
     const lineOptions = {
         interaction: {
@@ -61,7 +67,7 @@ const MonthlyTrend = () => {
             },
             title: {
                 display: true,
-                text: 'Monthly expenses trend in GBP (£)',
+                text: 'Utility expenses trend in GBP (£)',
             },
         },   
         scales: {
@@ -71,7 +77,7 @@ const MonthlyTrend = () => {
                     drawOnChartArea: true,
                     color: '#666666',                    
                 }
-            },
+            },            
             y: {
                 type: 'linear' as const,
                 display: true,
@@ -84,15 +90,15 @@ const MonthlyTrend = () => {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 50
-                }
+                },
             }   
         }
-    };  
+    }
 
     return (
         <div>
             <div className="col-6 col-s-9">
-                <h1>Monthly Expenses Trend</h1>
+                <h1>Monthly Utility Expenses Trend</h1>
                 <div>
                     <Line options={lineOptions} data={lineData} height="200" />
                 </div>  
@@ -100,8 +106,8 @@ const MonthlyTrend = () => {
             <div className="col-3 col-s-12">
                 <Side />
             </div>
-        </div>        
+        </div>  
     );
 }
 
-export default MonthlyTrend;
+export default MonthlyUtilityExpTrend;

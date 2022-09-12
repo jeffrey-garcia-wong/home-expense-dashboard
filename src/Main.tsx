@@ -28,6 +28,8 @@ const Main = () => {
                             <div className="drop-down-menu">              
                                 <Link to="/monthlyOverall">Monthly Overall</Link>
                                 <Link to="/monthlyTrend">Monthly Trend</Link>
+                                <Link to="/monthlyUtilityExpTrend">Utility Expenses Trend</Link>
+                                <Link to="/monthlyMiscExpTrend">Misc. Expenses Trend</Link>
                                 <Link to="/fixedExpBreakdown">Fixed Expenses</Link>
                                 <Link to="/utilityExpBreakdown">Utility Expenses</Link>
                                 <Link to="/miscExpBreakdown">Misc Expenses</Link>
