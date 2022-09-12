@@ -66,9 +66,19 @@ const MonthlyOverall = () => {
         scales: {
             x: {
                 stacked: true,
+                grid: {
+                    drawBorder: true,
+                    drawOnChartArea: true,
+                    color: '#666666',                    
+                }                
             },
             y: {
                 stacked: true,
+                grid: {
+                    drawBorder: true,
+                    drawOnChartArea: true,
+                    color: '#666666',                    
+                },                
                 ticks: {
                     stepSize: 100
                 }                    
@@ -101,7 +111,7 @@ const MonthlyOverall = () => {
             <div className="col-6 col-s-9">
                 <h1>Monthly Overall Expenses</h1>
                 <div>
-                    <Bar options={chartOptions} data={chartData} />
+                    <Bar options={chartOptions} data={chartData} height="200" />
                 </div>
             </div>
             <div className="col-3 col-s-12">
