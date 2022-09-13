@@ -26,13 +26,9 @@ const Main = () => {
                         <li>
                             <a href="#" onClick={handleMenuClick}>Expenses</a>
                             <div className="drop-down-menu">              
-                                <Link to="/monthlyOverall">Monthly Overall</Link>
-                                <Link to="/monthlyTrend">Monthly Trend</Link>
-                                <Link to="/monthlyUtilityExpTrend">Utility Expenses Trend</Link>
-                                <Link to="/monthlyMiscExpTrend">Misc. Expenses Trend</Link>
-                                <Link to="/fixedExpBreakdown">Fixed Expenses</Link>
-                                <Link to="/utilityExpBreakdown">Utility Expenses</Link>
-                                <Link to="/miscExpBreakdown">Misc Expenses</Link>
+                                <Link to="/monthlyOverallExp">Monthly Overall Exp.</Link>
+                                <Link to="/monthlyUtilityExp">Monthly Utility Exp.</Link>
+                                <Link to="/monthlyMiscExp">Monthly Misc. Exp.</Link>
                             </div>
                         </li>
                         <li>

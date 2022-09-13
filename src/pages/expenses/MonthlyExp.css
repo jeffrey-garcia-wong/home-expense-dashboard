@@ -1,10 +1,10 @@
 /* Style the tab */
 .tab {
     overflow: hidden;
-  }
+}
   
-  /* Style the buttons inside the tab */
-  .tab button {
+/* Style the buttons inside the tab */
+.tab button {
     background-color: #333333;
     float: left;
     border: none;
@@ -14,26 +14,26 @@
     transition: 0.3s;
     color: #ffffff;
     text-align: center;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-    background-color: #333333;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #666666;
     color: #ffffff;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
     background-color: #33b5e5;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
+}
+
+/* Style the tab content */
+.tabcontent {
     display: none;
     padding: 6px 12px;
-  }
+}
 
-  .tabcontent.active {
+.tabcontent.active {
     display: block;
     padding: 6px 12px;
-  }  
+}  
