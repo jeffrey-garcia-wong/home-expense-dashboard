@@ -31,7 +31,7 @@ ChartJS.register(
 );
 
 const MonthlyMiscExp = () => {
-    const barData = {
+    const data = {
         labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
         datasets: [
             {
@@ -100,8 +100,8 @@ const MonthlyMiscExp = () => {
                 callbacks: {
                     footer: function(items:any) {
                         var total = 0;
-                        for (var i = 0; i < barData['datasets'].length; i++){
-                            total += barData['datasets'][i].data[items[0].dataIndex];
+                        for (var i = 0; i < data['datasets'].length; i++) {
+                            total += data['datasets'][i].data[items[0].dataIndex];
                         }
                         return 'Total: ' + total 
                       }
@@ -116,47 +116,6 @@ const MonthlyMiscExp = () => {
             },
         },     
     };
-
-    const lineData = {
-        labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-        datasets: [
-            {
-                label: 'Marketing',
-                data: [478.86, 772.34, 682.25, 561.78, 683.44, 559.43],
-                borderColor: 'rgb(191, 255, 0, 1)',
-                backgroundColor: 'rgba(191, 255, 0, 0.2)',
-                borderWidth: 2
-            },
-            {
-                label: 'Outdoor Dining',
-                data: [249.83, 109.31, 380.46, 463.99, 345.15, 181.49],
-                borderColor: 'rgba(255, 206, 86, 1)',
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderWidth: 2
-            },
-            {
-                label: 'Appliances',
-                data: [0.00, 150.00, 0.00, 2093.98, 1295.50, 745.50],                
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderWidth: 2
-            },            
-            {
-                label: 'Home Refurbishment',
-                data: [0.00, 55.00, 0.00, 0.00, 2825.00, 1862.78],
-                borderColor: 'rgba(255, 99, 132, 1)',
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderWidth: 2
-            },       
-            {
-                label: 'School & Activities',
-                data: [301.00, 542.26, 528.26, 170.00, 514.00, 612.60],
-                borderColor: 'rgba(153, 102, 255, 1)',
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderWidth: 2
-            },
-        ],        
-    }
 
     const lineOptions = {
         animations: {
@@ -249,11 +208,11 @@ const MonthlyMiscExp = () => {
                 </div>
 
                 <div id="breakdown-content" className="tabcontent active">
-                    <Bar options={barOptions} data={barData} height="300" />
+                    <Bar options={barOptions} data={data} height="300" />
                 </div>
 
                 <div id="trend-content" className="tabcontent">
-                    <Line options={lineOptions} data={lineData} height="300" />
+                    <Line options={lineOptions} data={data} height="300" />
                 </div>                
             </div>
             <div className="col-3 col-s-12">
