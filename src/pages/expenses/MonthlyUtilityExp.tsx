@@ -30,40 +30,8 @@ ChartJS.register(
     BarElement,
 );
 
-const MonthlyUtilityExp = () => {
-    const data = {
-        labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-        datasets: [
-            {
-                label: 'Electricity',
-                data: [71.92, 71.92, 71.92, 71.92, 71.92, 71.92],
-                borderColor: 'rgb(54, 162, 235, 1)',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderWidth: 2
-            },
-            {
-                label: 'Gas',
-                data: [41.03, 41.03, 41.03, 41.03, 41.03, 41.03],
-                borderColor: 'rgba(255, 206, 86, 1)',
-                backgroundColor: 'rgba(255, 206, 86, 0.2)', 
-                borderWidth: 2               
-            },
-            {
-                label: 'Water',
-                data: [47.52, 47.52, 47.52, 47.52, 47.52, 47.52],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderWidth: 2
-            },
-            {
-                label: 'Petrol',
-                data: [168.41, 125.92, 258.27, 227.42, 236.22, 96.27],
-                borderColor: 'rgba(153, 102, 255, 1)',
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderWidth: 2
-            },              
-        ]
-    };
+const MonthlyUtilityExp = (props:any) => {
+    const expData = props.expensesData;
 
     const barOptions = {
         responsive: true,
@@ -93,8 +61,8 @@ const MonthlyUtilityExp = () => {
                 callbacks: {
                     footer: function(items:any) {
                         var total = 0;
-                        for (var i = 0; i < data['datasets'].length; i++){
-                            total += data['datasets'][i].data[items[0].dataIndex];
+                        for (var i = 0; i < expData['datasets'].length; i++){
+                            total += expData['datasets'][i].data[items[0].dataIndex];
                         }
                         return 'Total: ' + total 
                       }
@@ -201,15 +169,15 @@ const MonthlyUtilityExp = () => {
                 </div>
 
                 <div id="breakdown-content" className="tabcontent active">
-                    <Bar options={barOptions} data={data} height="300" />
+                    <Bar options={barOptions} data={expData} height="300" />
                 </div>
 
                 <div id="trend-content" className="tabcontent">
-                    <Line options={lineOptions} data={data} height="300" />
+                    <Line options={lineOptions} data={expData} height="300" />
                 </div>                
             </div>
             <div className="col-3 col-s-12">
-                <Side />
+                <Side data={expData} />
             </div>
         </div>        
     );

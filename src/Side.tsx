@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 
 import './Side.css';
 
-class Side extends Component {
+class Side extends Component<any> {
   render() {
+    const { data } = this.props;
+
     return (
       <div className="aside">
         <h2>Expenses</h2>

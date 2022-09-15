@@ -28,34 +28,9 @@ ChartJS.register(
     LineElement
 );
 
-const MonthlyOverallExp = () => {
-    const data = {
-        labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-        datasets: [
-            {
-                label: 'Fixed expenses',
-                data: [2150.84, 2150.84, 2150.84, 2150.84, 2150.84, 2167.08],
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderWidth: 2
-            },
-            {
-                label: 'Utility expenses',
-                data: [470.96, 428.47, 560.82, 529.97, 538.77, 398.82],
-                borderColor: 'rgba(255, 206, 86)',
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderWidth: 2
-            },
-            {
-                label: 'Miscellaneous expenses',
-                data: [1029.69, 1578.91, 1420.97, 3119.75, 5493.09, 3841.80],
-                borderColor: 'rgba(75, 192, 192)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderWidth: 2
-            },              
-        ]
-    };
-
+const MonthlyOverallExp = (props:any) => {
+    const expData = props.expensesData;
+    
     const barOptions = {
         responsive: true,
         scales: {
@@ -84,8 +59,8 @@ const MonthlyOverallExp = () => {
                 callbacks: {
                     footer: function(items:any) {
                         var total = 0;
-                        for (var i = 0; i < data['datasets'].length; i++){
-                            total += data['datasets'][i].data[items[0].dataIndex];
+                        for (var i = 0; i < expData['datasets'].length; i++){
+                            total += expData['datasets'][i].data[items[0].dataIndex];
                         }
                         return 'Total: ' + total 
                       }
@@ -192,15 +167,15 @@ const MonthlyOverallExp = () => {
                 </div>
 
                 <div id="breakdown-content" className="tabcontent active">
-                    <Bar options={barOptions} data={data} height="300" />
+                    <Bar options={barOptions} data={expData} height="300" />
                 </div>
 
                 <div id="trend-content" className="tabcontent">
-                    <Line options={lineOptions} data={data} height="300" />
+                    <Line options={lineOptions} data={expData} height="300" />
                 </div>                
             </div>
             <div className="col-3 col-s-12">
-                <Side />
+                <Side data={expData}/>
             </div>
         </div>
     );
