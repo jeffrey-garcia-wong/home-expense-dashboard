@@ -27,6 +27,7 @@ const Main = () => {
                             <a href="#" onClick={handleMenuClick}>Expenses</a>
                             <div className="drop-down-menu">              
                                 <Link to="/monthlyOverallExp">Monthly Overall Exp.</Link>
+                                <Link to="/monthlyFixedExp">Monthly Fixed Exp.</Link>
                                 <Link to="/monthlyUtilityExp">Monthly Utility Exp.</Link>
                                 <Link to="/monthlyMiscExp">Monthly Misc. Exp.</Link>
                             </div>
