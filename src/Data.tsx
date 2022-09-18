@@ -4,6 +4,13 @@ const EXP_TYPE = {
     MISC: 'Miscellaneous Expenses'
 }
 
+const UTIL_EXP_TYPE = {
+    ELECTRICITY: 'Electricity',
+    GAS: 'Gas',
+    PETROL: 'Petrol',
+    WATER: 'Water'
+}
+
 const MISC_EXP_TYPE = {
     SUPERMARKET: 'Food & Supermarket',
     OUTDOOR_DINING: 'Outdoor Dining',
@@ -664,52 +671,62 @@ const RawExpensesData = [
 ];
 
 const initMiscExpData = ((input:any[]) => {
-    const initialize = (() => {
-        const tmp:any[] = [];
-        input.forEach((e) => {
-            tmp.push(0.00);
-        });
-        return tmp;
-    });
-
-    const data = [
-        { 
+    const _data = []; 
+    _data.push((() => {
+        const rgb = color();
+        return { 
             label: MISC_EXP_TYPE.SUPERMARKET, 
-            data:initialize(), 
-            borderColor: 'rgb(191, 255, 0, 1)',
-            backgroundColor: 'rgba(191, 255, 0, 0.2)',
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
             borderWidth: 2            
-        }, 
-        { 
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
             label: MISC_EXP_TYPE.OUTDOOR_DINING, 
-            data:initialize(),
-            borderColor: 'rgba(255, 206, 86, 1)',
-            backgroundColor: 'rgba(255, 206, 86, 0.2)',
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
             borderWidth: 2            
-        }, 
-        { 
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
             label: MISC_EXP_TYPE.SCHOOL_ACTIVITIES, 
-            data:initialize(),
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderWidth: 2             
-        },
-        { 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
             label: MISC_EXP_TYPE.HOME_APPLIANCES, 
-            data:initialize(),
-            borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderWidth: 2             
-        },
-        { 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
             label: MISC_EXP_TYPE.HOME_REFURBISHMENTS, 
-            data:initialize(),
-            borderColor: 'rgba(153, 102, 255, 1)',
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            borderWidth: 2             
-        } 
-    ];
-    return data;
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+    return _data;
 });
 
 const aggregateMiscExpense = () => {
@@ -735,46 +752,49 @@ const aggregateMiscExpense = () => {
     return { labels:MONTH_LABELS, datasets:reduceResult }; 
 };
 
-const initUtilitExpData = ((input:any[]) => {
-    const initialize = (() => {
-        const tmp:any[] = [];
-        input.forEach((e) => {
-            tmp.push(0.00);
-        });
-        return tmp;
-    });
-
-    const data = [
-        { 
-            label: 'Electricity', 
-            data: initialize(),
-            borderColor: 'rgb(54, 162, 235, 1)',
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderWidth: 2            
-        },
-        { 
-            label: 'Gas', 
-            data: initialize(),
-            borderColor: 'rgba(255, 206, 86, 1)',
-            backgroundColor: 'rgba(255, 206, 86, 0.2)', 
-            borderWidth: 2              
-        },
-        { 
-            label: 'Water', 
-            data: initialize(),
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderWidth: 2            
-        },
-        { 
-            label: 'Petrol', 
-            data: initialize(),
-            borderColor: 'rgba(153, 102, 255, 1)',
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            borderWidth: 2            
-        }        
-    ];
-    return data;
+const initUtilityExpData = ((input:any[]) => {
+    const _data = [];
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.ELECTRICITY, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.GAS, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());    
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.WATER, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.PETROL, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());
+    return _data;
 });
 
 const aggregateUtilityExpense = () => {
@@ -794,20 +814,11 @@ const aggregateUtilityExpense = () => {
             _item.data[curr.month -1] += curr.amount;
         }
         return tmp;
-    }, initUtilitExpData(RawExpensesData));
+    }, initUtilityExpData(RawExpensesData));
     // console.log(`${JSON.stringify(reduceResult)}`);
 
     return { labels:MONTH_LABELS, datasets:reduceResult };    
 }
-
-const initFixedExpData = ((input:any[]) => {
-    const data = [
-        {
-
-        }
-    ];
-    return data;
-});
 
 const color = (() => {
     const r = Math.floor(Math.random() * 256);
@@ -855,7 +866,7 @@ const ExpenseData = {
     fixedExpenses: aggregateFixedExpense(),
     utilityExpenses: aggregateUtilityExpense(),
     miscExpenses: aggregateMiscExpense()
-}
+};
 
 const aggregateOverallExpenses = (() => {
     (() => {
