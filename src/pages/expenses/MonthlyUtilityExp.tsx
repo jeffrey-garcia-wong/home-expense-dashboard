@@ -1,4 +1,5 @@
 import { MouseEvent } from "react";
+import { Link } from "react-router-dom";
 
 import {
     Chart as ChartJS,
@@ -16,6 +17,7 @@ import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
 import Side from '../../Side';
+import ElectricityExpTips from "../../modal/ElectricityExpTips";
 
 import './MonthlyExp.css';
 
@@ -158,6 +160,13 @@ const MonthlyUtilityExp = (props:any) => {
         }        
     };
 
+    const handleSideMenuClick = (ev:MouseEvent) => {
+        const modalPage = document.getElementsByClassName('modal')[0] as HTMLElement|null;
+        if (modalPage != null) {
+            modalPage.style.display = "block";
+        }
+    };
+
     return (
         <div>
             <div className="col-6 col-s-9">
@@ -176,9 +185,15 @@ const MonthlyUtilityExp = (props:any) => {
                     <Line options={lineOptions} data={expData} height="300" />
                 </div>                
             </div>
+
             <div className="col-3 col-s-12">
-                <Side data={expData} />
+                <div className="aside">
+                    <h2>Utility Expenses Tips</h2>
+                    <a href="#" onClick={handleSideMenuClick}>Electricity</a>
+                </div>
             </div>
+
+            <ElectricityExpTips />
         </div>        
     );
 }
