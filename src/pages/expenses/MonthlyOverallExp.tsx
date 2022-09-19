@@ -174,8 +174,16 @@ const MonthlyOverallExp = (props:any) => {
                     <Line options={lineOptions} data={expData} height="300" />
                 </div>                
             </div>
+
             <div className="col-3 col-s-12">
-                <Side data={expData}/>
+                <div className="aside">
+                    <h3>Overall Expenses Detail</h3>
+                    <p>
+                        <a href="#">
+                            Average as of date
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     );
