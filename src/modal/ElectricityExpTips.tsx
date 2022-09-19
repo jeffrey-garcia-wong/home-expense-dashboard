@@ -1,18 +1,16 @@
 import { MouseEvent, ChangeEvent, useState } from 'react';
 import './ElectricityExpTips.css';
 
-const ElectricityExpTips = () => {
-    const handleClose = ((ev:MouseEvent) => {
-        const modalClose = (ev.target as Element) as HTMLElement|null;
-        const modalPage = document.getElementsByClassName('modal')[0] as HTMLElement|null;
-        if (modalClose != null) {
-            if (modalPage != null) {
-                modalPage.style.display = "none";
-            } else {
-                console.error(`something went wrong`)
-            }
+const ElectricityExpTips = (props:any) => {
+    const { modalId } = props;
+
+    const handleClose = ((modalId:string) => {
+        const modalPage = document.getElementById(modalId) as HTMLElement|null;
+        // console.log(modalPage);
+        if (modalPage != null) {
+            modalPage.style.display = "none";
         }
-    })
+    });
 
     const tariffPrice:number = 26.19;
     const dailyAvgConsumption:number = 8;
@@ -40,7 +38,7 @@ const ElectricityExpTips = () => {
         switch (attr) {
             case 'tariffPriceUnit': 
                 const runUpdateTariff = (() => {
-                    let _tariffPrice = (val.charAt(val.length-1)=='p') ? +val.substring(0, val.length>1?val.length-1:0) : +val;
+                    const _tariffPrice = (val.charAt(val.length-1)=='p') ? +val.substring(0, val.length>1?val.length-1:0) : +val;
                     const _yearlySolarEnergy = +state.yearlySolarEnergyUnit.substring(0, state.yearlySolarEnergyUnit.length-3);
                     const _yearlyCostSaved = _tariffPrice / 100 * _yearlySolarEnergy;
                     const _offsetYears = estSolarPanelCost / _yearlyCostSaved;
@@ -103,9 +101,11 @@ const ElectricityExpTips = () => {
     });
 
     return (
-        <div className="modal">
+        <div id={modalId} className="modal">
             <div className="modal-content">
-                <span id="modalClose" className="close" onClick={handleClose}>&times;</span>
+                <span id="modalClose" className="close" onClick={(ev:MouseEvent) => handleClose(modalId)}>
+                    &times;
+                </span>
                 <div className='row'>
                     <div className="col-12 col-s-12 menu">
                         <table id="expense-tips">
