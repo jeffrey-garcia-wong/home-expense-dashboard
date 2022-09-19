@@ -65,7 +65,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 102.31
             },
             {
                 label: 'Road Tax',
