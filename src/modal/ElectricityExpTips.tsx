@@ -1,5 +1,5 @@
 import { MouseEvent, ChangeEvent, useState } from 'react';
-import './ElectricityExpTips.css';
+import './ExpTips.css';
 
 const ElectricityExpTips = (props:any) => {
     const { modalId } = props;
