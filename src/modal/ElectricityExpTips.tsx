@@ -1,20 +1,18 @@
-import { ChangeEvent, useState } from 'react';
+import { MouseEvent, ChangeEvent, useState } from 'react';
 import './ElectricityExpTips.css';
 
 const ElectricityExpTips = () => {
-    (() => {
+    const handleClose = ((ev:MouseEvent) => {
+        const modalClose = (ev.target as Element) as HTMLElement|null;
         const modalPage = document.getElementsByClassName('modal')[0] as HTMLElement|null;
-        const modalClose = document.getElementById("modalClose") as HTMLElement|null;
         if (modalClose != null) {
-            modalClose.onclick = ((ev:MouseEvent) => {
-                if (modalPage != null) {
-                    modalPage.style.display = "none";
-                } else {
-                    console.error(`something went wrong`)
-                }
-            });
+            if (modalPage != null) {
+                modalPage.style.display = "none";
+            } else {
+                console.error(`something went wrong`)
+            }
         }
-    })();
+    })
 
     const tariffPrice:number = 26.19;
     const dailyAvgConsumption:number = 8;
@@ -23,6 +21,7 @@ const ElectricityExpTips = () => {
     const yearlyCostSaved:number = yearlySolarEnergy * tariffPrice / 100;
     const estSolarPanelCost:number = 8306;
     const offsetYears:number = estSolarPanelCost / yearlyCostSaved;
+
     const [state, setState] = useState({ 
         tariffPriceUnit: `${tariffPrice}p`,
         dailyAvgConsumptionUnit: `${dailyAvgConsumption}kWh`,
@@ -101,20 +100,12 @@ const ElectricityExpTips = () => {
             default:
                 break;
         }
-
-        // 
-        // 
-        // 
-        // setState({ 
-        //     tariffPriceUnit: `${_tariffPrice}p`,
-        //     dailyAvgConsumptionUnit: `${state.dailyAvgConsumptionUnit}kWh`, 
-        // });
     });
 
     return (
         <div className="modal">
             <div className="modal-content">
-                <span id="modalClose" className="close">&times;</span>
+                <span id="modalClose" className="close" onClick={handleClose}>&times;</span>
                 <div className='row'>
                     <div className="col-12 col-s-12 menu">
                         <table id="expense-tips">
@@ -187,16 +178,18 @@ const ElectricityExpTips = () => {
                                         {state.estSolarPanelCostUnit + ' / ' + state.yearlyCostSavedUnit} <br/>
                                         {' = ' + state.offsetYearsUnit}
                                     </td>
-                                </tr>                                                                
+                                </tr>                                                                                                                                                            
+                            </tbody>
+                            <thead>
                                 <tr>
-                                    <td colSpan={2}>
+                                    <th colSpan={2}>
                                         <b><i>
                                             * If the price of electricity tariff increases, 
                                             the years to offset solar panel's cost reduces.
                                         </i></b>
-                                    </td>
-                                </tr>                                                                                                
-                            </tbody>
+                                    </th>
+                                </tr>                                    
+                            </thead>
                         </table>
                         {/* <h2></h2><br/>
                          */}
