@@ -16,10 +16,10 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
+import './MonthlyExp.css';
 import Side from '../../Side';
 import ElectricityExpTips from "../../modal/ElectricityExpTips";
-
-import './MonthlyExp.css';
+import PetrolExpTips from "../../modal/PetrolExpTips";
 
 ChartJS.register(
     CategoryScale,
@@ -160,8 +160,14 @@ const MonthlyUtilityExp = (props:any) => {
         }        
     };
 
-    const handleSideMenuClick = (ev:MouseEvent) => {
-        const modalPage = document.getElementsByClassName('modal')[0] as HTMLElement|null;
+    const MODAL_PAGE = {
+        ELECTRICITY_EXP_TIPS: 'how-solar-panel-offset-electricity-expense',
+        PETROL_EXP_TIPS: 'how-much-fuel-your-car-spent-to-travel'
+    }
+
+    const handleSideMenuClick = (modalPageId:string) => {
+        // console.log(modalPageId);
+        const modalPage = document.getElementById(modalPageId) as HTMLElement|null;
         if (modalPage != null) {
             modalPage.style.display = "block";
         }
@@ -189,11 +195,22 @@ const MonthlyUtilityExp = (props:any) => {
             <div className="col-3 col-s-12">
                 <div className="aside">
                     <h3>Utility Expenses Tips</h3>
-                    <a href="#" onClick={handleSideMenuClick}>How solar panel offset electricity expense?</a>
+                    <p>
+                        <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
+                            How solar panel offset electricity expense?
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
+                            How much fuel your car spent to travel?
+                        </a>
+                    </p>
+                    
                 </div>
             </div>
 
-            <ElectricityExpTips />
+            <ElectricityExpTips modalId={MODAL_PAGE.ELECTRICITY_EXP_TIPS} />
+            <PetrolExpTips modalId={MODAL_PAGE.PETROL_EXP_TIPS} />
         </div>        
     );
 }
