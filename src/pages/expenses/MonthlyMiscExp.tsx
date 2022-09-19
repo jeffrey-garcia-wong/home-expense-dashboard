@@ -176,8 +176,21 @@ const MonthlyMiscExp = (props:any) => {
                     <Line options={lineOptions} data={expData} height="300" />
                 </div>                
             </div>
+
             <div className="col-3 col-s-12">
-                <Side data={expData} />
+                <div className="aside">
+                    <h3>Misc Expenses Detail</h3>
+                    <p>
+                        <a href="#">
+                            Audrey's school &amp; activities expense distribution
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Allen's school &amp; activities expense distribution
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>          
     );

@@ -176,8 +176,21 @@ const MonthlyFixedExp = ((props:any) => {
                     <Line options={lineOptions} data={expData} height="300" />
                 </div>                
             </div>
+
             <div className="col-3 col-s-12">
-                <Side data={expData} />
+                <div className="aside">
+                    <h3>Fixed Expenses Detail</h3>
+                    <p>
+                        <a href="#">
+                            Mortgage Loan
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Car Insurance
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>          
     );    
