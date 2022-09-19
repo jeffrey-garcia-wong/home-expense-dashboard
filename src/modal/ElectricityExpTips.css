@@ -97,6 +97,11 @@ th, td {
     word-break: break-all;
 }
 
+td:hover {
+    background-color: #33b5e5;
+    color: #333333;
+}
+
 input[type=text] {
     box-sizing: border-box;
     border: 0;

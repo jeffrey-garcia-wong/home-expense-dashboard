@@ -188,8 +188,8 @@ const MonthlyUtilityExp = (props:any) => {
 
             <div className="col-3 col-s-12">
                 <div className="aside">
-                    <h2>Utility Expenses Tips</h2>
-                    <a href="#" onClick={handleSideMenuClick}>Electricity</a>
+                    <h3>Utility Expenses Tips</h3>
+                    <a href="#" onClick={handleSideMenuClick}>How solar panel offset electricity expense?</a>
                 </div>
             </div>
 
