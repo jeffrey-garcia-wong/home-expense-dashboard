@@ -1,5 +1,5 @@
 import { ChangeEvent, MouseEvent, useState } from 'react';
-import './ElectricityExpTips.css';
+import './ExpTips.css';
 
 const PetrolExpTips = ((props:any) => {
     const { modalId } = props;
@@ -177,23 +177,21 @@ const PetrolExpTips = ((props:any) => {
                                                 total petrol cost reduces.
                                             </i></b>
                                         </p>
-                                        <p>
-                                            <ul>
-                                                <li><u>Round Trip Journey Distance</u></li>
-                                                <li>Home to Sacred Heart = 7 Miles</li>
-                                                <li>Home to ASDA (Southgate) = 8 Miles</li>
-                                                <li>Home to TESCO (Borehamwood) = 8 Miles</li>
-                                                <li>Home to TESCO (Colney Hatch Lane) = 8 Miles</li>
-                                                <li>Home to Morrison (Colindale) = 13 Miles</li>
-                                                <li>Home to Brent Cross Shopping Centre = 15 Miles</li>
-                                                <li>Home to 榮業行 = 17 Miles</li>
-                                                <li>Home to Watford COSTCO = 17 Miles</li>
-                                                <li>Home to Harrow BMX Park = 20 Miles</li>
-                                                <li>Home to Wembley COSTCO = 22 Miles</li>
-                                                <li>Home to Westfield (Shepherd Bush) = 28 Miles</li>
-                                                <li>Home to Lee Valley BMX Park = 38 Miles</li>
-                                            </ul>
-                                        </p>
+                                        <ul>
+                                            <li><u>Round Trip Journey Distance</u></li>
+                                            <li>Home to Sacred Heart = 7 Miles</li>
+                                            <li>Home to ASDA (Southgate) = 8 Miles</li>
+                                            <li>Home to TESCO (Borehamwood) = 8 Miles</li>
+                                            <li>Home to TESCO (Colney Hatch Lane) = 8 Miles</li>
+                                            <li>Home to Morrison (Colindale) = 13 Miles</li>
+                                            <li>Home to Brent Cross Shopping Centre = 15 Miles</li>
+                                            <li>Home to Wing Yip Supermarket = 17 Miles</li>
+                                            <li>Home to Watford COSTCO = 17 Miles</li>
+                                            <li>Home to Harrow BMX Park = 20 Miles</li>
+                                            <li>Home to Wembley COSTCO = 22 Miles</li>
+                                            <li>Home to Westfield (Shepherd Bush) = 28 Miles</li>
+                                            <li>Home to Lee Valley BMX Park = 38 Miles</li>
+                                        </ul>
                                     </th>
                                 </tr>                                    
                             </thead>                            
