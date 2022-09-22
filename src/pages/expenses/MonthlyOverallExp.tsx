@@ -58,11 +58,11 @@ const MonthlyOverallExp = (props:any) => {
             tooltip: {
                 callbacks: {
                     footer: function(items:any) {
-                        var total = 0;
+                        let total = 0;
                         for (var i = 0; i < expData['datasets'].length; i++){
-                            total += expData['datasets'][i].data[items[0].dataIndex];
+                            total += expData['datasets'][i].data[items[0].dataIndex] * 100;
                         }
-                        return 'Total: ' + total 
+                        return 'Total: £ ' + (total / 100).toFixed(2);
                       }
                 }
             },
