@@ -119,7 +119,7 @@ const ElectricityExpTips = (props:any) => {
                             <tbody>
                                 <tr>
                                     <td>
-                                        Electricity price per kWh
+                                        Electricity price per kWh (fixed tariff)
                                     </td>
                                     <td>
                                         <input type="text" name="tariffPriceUnit" 
