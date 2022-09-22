@@ -16,18 +16,18 @@ const ElectricityExpTips = (props:any) => {
     const dailyAvgConsumption:number = 8;
     const yearlyAvgConsumption:number = dailyAvgConsumption * 365;
     const yearlySolarEnergy:number = 2641;
-    const yearlyCostSaved:number = Number((yearlySolarEnergy * tariffPrice / 100).toFixed(3));
+    const yearlyCostSaved:number = yearlySolarEnergy * tariffPrice / 100;
     const estSolarPanelCost:number = 8306;
-    const offsetYears:number = Number((estSolarPanelCost / yearlyCostSaved).toFixed(3));
+    const offsetYears:number = estSolarPanelCost / yearlyCostSaved;
 
     const [state, setState] = useState({ 
-        tariffPriceUnit: `${tariffPrice}p`,
-        dailyAvgConsumptionUnit: `${dailyAvgConsumption}kWh`,
-        yearlyAvgConsumptionUnit: `${yearlyAvgConsumption}kWh`,
-        yearlySolarEnergyUnit: `${yearlySolarEnergy}kWh`,
-        yearlyCostSavedUnit: `£${yearlyCostSaved}`,
-        estSolarPanelCostUnit: `£${estSolarPanelCost}`,
-        offsetYearsUnit: `${offsetYears} years`,
+        tariffPriceUnit: `${tariffPrice.toFixed(2)}p`,
+        dailyAvgConsumptionUnit: `${dailyAvgConsumption.toFixed(2)}kWh`,
+        yearlyAvgConsumptionUnit: `${yearlyAvgConsumption.toFixed(2)}kWh`,
+        yearlySolarEnergyUnit: `${yearlySolarEnergy.toFixed(2)}kWh`,
+        yearlyCostSavedUnit: `£${yearlyCostSaved.toFixed(2)}`,
+        estSolarPanelCostUnit: `£${estSolarPanelCost.toFixed(2)}`,
+        offsetYearsUnit: `${offsetYears.toFixed(2)} years`,
     });
 
     const updateTariff = ((event:ChangeEvent) => {
@@ -38,19 +38,19 @@ const ElectricityExpTips = (props:any) => {
         switch (attr) {
             case 'tariffPriceUnit': 
                 const runUpdateTariff = (() => {
-                    const _tariffPrice = (val.charAt(val.length-1)=='p') ? +val.substring(0, val.length>1?val.length-1:0) : +val;
+                    const _tariffPrice = (val.charAt(val.length-1)=='p') ? Number(val.substring(0, val.length>1?val.length-1:0)) : Number(val);
                     const _yearlySolarEnergy = +state.yearlySolarEnergyUnit.substring(0, state.yearlySolarEnergyUnit.length-3);
-                    const _yearlyCostSaved = Number((_tariffPrice / 100 * _yearlySolarEnergy).toFixed(3));
-                    const _offsetYears = Number((estSolarPanelCost / _yearlyCostSaved).toFixed(3));
+                    const _yearlyCostSaved = _tariffPrice / 100 * _yearlySolarEnergy;
+                    const _offsetYears = estSolarPanelCost / _yearlyCostSaved;
                     console.log(`${attr}: ${_tariffPrice}`);
                     setState({ 
-                        tariffPriceUnit: `${_tariffPrice}p`,
+                        tariffPriceUnit: `${_tariffPrice.toFixed(2)}p`,
                         dailyAvgConsumptionUnit: `${state.dailyAvgConsumptionUnit}`, 
                         yearlyAvgConsumptionUnit: `${state.yearlyAvgConsumptionUnit}`,
                         yearlySolarEnergyUnit: `${state.yearlySolarEnergyUnit}`,
-                        yearlyCostSavedUnit: `£${_yearlyCostSaved}`,
+                        yearlyCostSavedUnit: `£${_yearlyCostSaved.toFixed(2)}`,
                         estSolarPanelCostUnit: `${state.estSolarPanelCostUnit}`,
-                        offsetYearsUnit: `${_offsetYears} years`,
+                        offsetYearsUnit: `${_offsetYears.toFixed(2)} years`,
                     });   
                 });
                 runUpdateTariff();
@@ -58,27 +58,27 @@ const ElectricityExpTips = (props:any) => {
 
             case 'dailyAvgConsumptionUnit': 
                 const runUpdateDailyAvgConsumption = (() => {
-                    const _dailyAvgConsumption = (val.indexOf('kWh')==val.length-3) ? +val.substring(0, val.length>3?val.length-3:0) : +val;
-                    const _yearlyAvgConsumption = Number((_dailyAvgConsumption * 365).toFixed(3));
+                    const _dailyAvgConsumption = (val.indexOf('kWh')==val.length-3) ? Number(val.substring(0, val.length>3?+val.length-3:0)) : Number(val);
+                    const _yearlyAvgConsumption = _dailyAvgConsumption * 365;
                     const _yearlySolarEnergy = Number(state.yearlySolarEnergyUnit.substring(0, state.yearlySolarEnergyUnit.length-3));
                     console.log(`${attr}: ${_dailyAvgConsumption}`);
                     const _tariffPrice = +state.tariffPriceUnit.substring(0, state.tariffPriceUnit.length-1);
                     const _estSolarPanelCost = +state.estSolarPanelCostUnit.substring(1, state.estSolarPanelCostUnit.length);
                     let _yearlyCostSaved = 0;
                     if (_yearlyAvgConsumption < _yearlySolarEnergy) {
-                        _yearlyCostSaved = Number((_yearlyAvgConsumption * _tariffPrice / 100).toFixed(3));
+                        _yearlyCostSaved = _yearlyAvgConsumption * _tariffPrice / 100;
                     } else {
-                        _yearlyCostSaved = Number((_yearlySolarEnergy * _tariffPrice / 100).toFixed(3));
+                        _yearlyCostSaved = _yearlySolarEnergy * _tariffPrice / 100;
                     }
-                    const _offsetYears = Number((_estSolarPanelCost / _yearlyCostSaved).toFixed(3));                    
+                    const _offsetYears = _estSolarPanelCost / _yearlyCostSaved;                    
                     setState({ 
                         tariffPriceUnit: `${state.tariffPriceUnit}`,
-                        dailyAvgConsumptionUnit: `${_dailyAvgConsumption}kWh`, 
-                        yearlyAvgConsumptionUnit: `${_yearlyAvgConsumption}kWh`,
+                        dailyAvgConsumptionUnit: `${_dailyAvgConsumption.toFixed(2)}kWh`, 
+                        yearlyAvgConsumptionUnit: `${_yearlyAvgConsumption.toFixed(2)}kWh`,
                         yearlySolarEnergyUnit: `${state.yearlySolarEnergyUnit}`,
-                        yearlyCostSavedUnit: `£${_yearlyCostSaved}`,
+                        yearlyCostSavedUnit: `£${_yearlyCostSaved.toFixed(2)}`,
                         estSolarPanelCostUnit: `${state.estSolarPanelCostUnit}`,
-                        offsetYearsUnit: `${_offsetYears} years`,
+                        offsetYearsUnit: `${_offsetYears.toFixed(2)} years`,
                     });    
                 });
                 runUpdateDailyAvgConsumption();
@@ -86,26 +86,26 @@ const ElectricityExpTips = (props:any) => {
 
             case 'yearlySolarEnergyUnit':
                 const runUpdateYearlySolarEnergy = (() => {
-                    const _yearlySolarEnergy = (val.indexOf('kWh')==val.length-3) ? +val.substring(0, val.length>3?val.length-3:0) : +val;
+                    const _yearlySolarEnergy = (val.indexOf('kWh')==val.length-3) ? Number(val.substring(0, val.length>3?val.length-3:0)) : Number(val);
                     const _yearlyAvgConsumption = +state.yearlyAvgConsumptionUnit.substring(0, state.yearlyAvgConsumptionUnit.length-3);
                     console.log(`${attr}: ${_yearlySolarEnergy}`);
                     const _tariffPrice = +state.tariffPriceUnit.substring(0, state.tariffPriceUnit.length-1);
                     const _estSolarPanelCost = +state.estSolarPanelCostUnit.substring(1, state.estSolarPanelCostUnit.length);
                     let _yearlyCostSaved = 0;
                     if (_yearlyAvgConsumption < _yearlySolarEnergy) {
-                        _yearlyCostSaved = Number((_yearlyAvgConsumption * _tariffPrice / 100).toFixed(3));
+                        _yearlyCostSaved = _yearlyAvgConsumption * _tariffPrice / 100;
                     } else {
-                        _yearlyCostSaved = Number((_yearlySolarEnergy * _tariffPrice / 100).toFixed(3));
+                        _yearlyCostSaved = _yearlySolarEnergy * _tariffPrice / 100;
                     }
-                    const _offsetYears = Number((_estSolarPanelCost / _yearlyCostSaved).toFixed(3));
+                    const _offsetYears = _estSolarPanelCost / _yearlyCostSaved;
                     setState({ 
                         tariffPriceUnit: `${state.tariffPriceUnit}`,
                         dailyAvgConsumptionUnit: `${state.dailyAvgConsumptionUnit}`, 
                         yearlyAvgConsumptionUnit: `${state.yearlyAvgConsumptionUnit}`,
-                        yearlySolarEnergyUnit: `${_yearlySolarEnergy}kWh`,
-                        yearlyCostSavedUnit: `£${_yearlyCostSaved}`,
+                        yearlySolarEnergyUnit: `${_yearlySolarEnergy.toFixed(2)}kWh`,
+                        yearlyCostSavedUnit: `£${_yearlyCostSaved.toFixed(2)}`,
                         estSolarPanelCostUnit: `${state.estSolarPanelCostUnit}`,
-                        offsetYearsUnit: `${_offsetYears} years`,
+                        offsetYearsUnit: `${_offsetYears.toFixed(2)} years`,
                     });
                 });
                 runUpdateYearlySolarEnergy();
@@ -166,7 +166,7 @@ const ElectricityExpTips = (props:any) => {
                                         Yearly average consumption
                                     </td>
                                     <td>
-                                    {state.dailyAvgConsumptionUnit + ' * 365 = ' + state.yearlyAvgConsumptionUnit}
+                                        {`${state.dailyAvgConsumptionUnit} * 365 = ${state.yearlyAvgConsumptionUnit}`}
                                     </td>
                                 </tr>
                                 <tr>
@@ -200,8 +200,8 @@ const ElectricityExpTips = (props:any) => {
                                         Years to offset cost of solar panel + battery
                                     </td>
                                     <td>
-                                        {state.estSolarPanelCostUnit + ' / ' + state.yearlyCostSavedUnit} <br/>
-                                        {' = ' + state.offsetYearsUnit}
+                                        {`${state.estSolarPanelCostUnit} / ${state.yearlyCostSavedUnit}`} <br/>
+                                        {` = ${state.offsetYearsUnit}`}
                                     </td>
                                 </tr>                                                                                                                                                            
                             </tbody>
