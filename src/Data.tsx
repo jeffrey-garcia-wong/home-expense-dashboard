@@ -65,7 +65,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 102.31
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -127,7 +127,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -219,7 +219,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -315,7 +315,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -402,7 +402,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -484,7 +484,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -586,7 +586,7 @@ const RawExpensesData = [
             },
             {
                 label: 'Car Insurance',
-                amount: 135
+                amount: 71.98
             },
             {
                 label: 'Road Tax',
@@ -668,6 +668,111 @@ const RawExpensesData = [
             }                                             
         ]
     },           
+    {
+        month: 9,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            }
+        ],                
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 180.88
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 623.53,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 312.49,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },                
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Easigrass (outstanding)',
+                amount: 2078.79,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Soft (outstanding)',
+                amount: 1961,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },  
+            {
+                label: 'Bed and Mattress (deposit)',
+                amount: 783,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },                      
+            {
+                label: 'Audrey Art',
+                amount: 35,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }                                             
+        ]
+    },       
 ];
 
 const initMiscExpData = ((input:any[]) => {
