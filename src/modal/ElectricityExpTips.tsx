@@ -34,6 +34,7 @@ const ElectricityExpTips = (props:any) => {
         const attr = (event.target as HTMLInputElement).name;
         const val = (event.target as HTMLInputElement).value;
         console.log(`${attr}`);
+        console.log(`${val}`);
 
         switch (attr) {
             case 'tariffPriceUnit': 
@@ -86,6 +87,7 @@ const ElectricityExpTips = (props:any) => {
 
             case 'yearlySolarEnergyUnit':
                 const runUpdateYearlySolarEnergy = (() => {
+                    console.log(`${val}`);
                     const _yearlySolarEnergy = (val.indexOf('kWh')==val.length-3) ? Number(val.substring(0, val.length>3?val.length-3:0)) : Number(val);
                     const _yearlyAvgConsumption = +state.yearlyAvgConsumptionUnit.substring(0, state.yearlyAvgConsumptionUnit.length-3);
                     console.log(`${attr}: ${_yearlySolarEnergy}`);
@@ -109,6 +111,25 @@ const ElectricityExpTips = (props:any) => {
                     });
                 });
                 runUpdateYearlySolarEnergy();
+                break;
+
+            case 'estSolarPanelCostUnit':
+                const runUpdateSolarPanelCostUnit = (() => {
+                    const _estSolarPanelCost = (val.indexOf('£')==0) ? Number(val.substring(1, val.length)) : Number(val);
+                    const _yearlyCostSaved = Number(state.yearlyCostSavedUnit.substring(1, state.yearlyCostSavedUnit.length));
+                    const _offsetYears = _estSolarPanelCost / _yearlyCostSaved;
+                    setState({ 
+                        tariffPriceUnit: `${state.tariffPriceUnit}`,
+                        dailyAvgConsumptionUnit: `${state.dailyAvgConsumptionUnit}`, 
+                        yearlyAvgConsumptionUnit: `${state.yearlyAvgConsumptionUnit}`,
+                        yearlySolarEnergyUnit: `${state.yearlySolarEnergyUnit}`,
+                        yearlyCostSavedUnit: `${state.yearlyCostSavedUnit}`,
+                        estSolarPanelCostUnit: `£${_estSolarPanelCost.toFixed(2)}`,
+                        offsetYearsUnit: `${_offsetYears.toFixed(2)} years`,
+                    });
+                });
+                runUpdateSolarPanelCostUnit();
+                
                 break;
 
             default:
@@ -191,8 +212,8 @@ const ElectricityExpTips = (props:any) => {
                                         Total cost of solar panel + battery
                                     </td>
                                     <td>
-                                        <input type="text" name="yearlyCostSavedUnit" disabled 
-                                        value={state.estSolarPanelCostUnit}/>
+                                        <input type="text" name="estSolarPanelCostUnit"  
+                                        value={state.estSolarPanelCostUnit} onChange={updateTariff}/>
                                     </td>
                                 </tr>
                                 <tr>
