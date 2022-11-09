@@ -187,9 +187,24 @@ const MonthlyFixedExp = ((props:any) => {
                     </p>
                     <p>
                         <a href="#">
+                            HP Print
+                        </a>
+                    </p>                     
+                    <p>
+                        <a href="#">
                             Car Insurance
                         </a>
                     </p>
+                    <p>
+                        <a href="#">
+                            Home Insurance
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Electronic Appliances Warranty
+                        </a>
+                    </p>                    
                 </div>
             </div>
         </div>          
