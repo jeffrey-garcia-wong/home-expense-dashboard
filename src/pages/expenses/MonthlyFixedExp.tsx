@@ -187,7 +187,7 @@ const MonthlyFixedExp = ((props:any) => {
                 <h1>Monthly Fixed Expenses</h1>
 
                 <div className="tab">
-                    <button id="average" className="tablinks active" onClick={handleTabClick}>Trend</button>
+                    <button id="average" className="tablinks active" onClick={handleTabClick}>Average</button>
                     <button id="breakdown" className="tablinks" onClick={handleTabClick}>Breakdown</button>
                     <button id="trend" className="tablinks" onClick={handleTabClick}>Trend</button>
                 </div>
