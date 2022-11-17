@@ -36,6 +36,16 @@ const MonthlyFixedExp = ((props:any) => {
 
     const barOptions = {
         responsive: true,
+        animations: {
+            x: {
+                duration: 0,
+                from: 0
+            },
+            y: {
+                duration: 2500,
+                from: 0
+            }
+        },         
         scales: {
             x: {
                 stacked: true,
@@ -62,8 +72,8 @@ const MonthlyFixedExp = ((props:any) => {
                 callbacks: {
                     footer: function(items:any) {
                         var total = 0;
-                        for (var i = 0; i < expData['datasets'].length; i++) {
-                            total += expData['datasets'][i].data[items[0].dataIndex] * 100;
+                        for (var i = 0; i < expData['monthly']['datasets'].length; i++) {
+                            total += expData['monthly']['datasets'][i].data[items[0].dataIndex] * 100;
                         }
                         return 'Total: £ ' + (total / 100).toFixed(2);
                       }
@@ -177,16 +187,21 @@ const MonthlyFixedExp = ((props:any) => {
                 <h1>Monthly Fixed Expenses</h1>
 
                 <div className="tab">
-                    <button id="breakdown" className="tablinks active" onClick={handleTabClick}>Breakdown</button>
+                    <button id="average" className="tablinks active" onClick={handleTabClick}>Trend</button>
+                    <button id="breakdown" className="tablinks" onClick={handleTabClick}>Breakdown</button>
                     <button id="trend" className="tablinks" onClick={handleTabClick}>Trend</button>
                 </div>
 
-                <div id="breakdown-content" className="tabcontent active">
-                    <Bar options={barOptions} data={expData} height="300" />
+                <div id="average-content" className="tabcontent active">
+                    <Line options={lineOptions} data={expData.average} height="300" />
+                </div> 
+
+                <div id="breakdown-content" className="tabcontent">
+                    <Bar options={barOptions} data={expData.monthly} height="300" />
                 </div>
 
                 <div id="trend-content" className="tabcontent">
-                    <Line options={lineOptions} data={expData} height="300" />
+                    <Line options={lineOptions} data={expData.monthly} height="300" />
                 </div>                
             </div>
 
