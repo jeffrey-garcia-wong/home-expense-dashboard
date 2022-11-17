@@ -15,9 +15,9 @@ const ElectricityExpTips = (props:any) => {
     const tariffPrice:number = 26.19;
     const dailyAvgConsumption:number = 8;
     const yearlyAvgConsumption:number = dailyAvgConsumption * 365;
-    const yearlySolarEnergy:number = 2641;
+    const yearlySolarEnergy:number = 1291.68;
     const yearlyCostSaved:number = yearlySolarEnergy * tariffPrice / 100;
-    const estSolarPanelCost:number = 8306;
+    const estSolarPanelCost:number = 8086;
     const offsetYears:number = estSolarPanelCost / yearlyCostSaved;
 
     const [state, setState] = useState({ 

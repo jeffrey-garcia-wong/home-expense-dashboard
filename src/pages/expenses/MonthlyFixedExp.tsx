@@ -18,6 +18,7 @@ import { Line } from 'react-chartjs-2';
 import Side from '../../Side';
 
 import './MonthlyExp.css';
+import MortgageLoan from "../../modal/MortgageLoan";
 
 ChartJS.register(
     CategoryScale,
@@ -158,6 +159,18 @@ const MonthlyFixedExp = ((props:any) => {
         }        
     };
     
+    const MODAL_PAGE = {
+        MORTGAGE_LOAN: 'mortgage-loan',
+    }
+
+    const handleSideMenuClick = (modalPageId:string) => {
+        // console.log(modalPageId);
+        const modalPage = document.getElementById(modalPageId) as HTMLElement|null;
+        if (modalPage != null) {
+            modalPage.style.display = "block";
+        }
+    };
+
     return (
         <div>
             <div className="col-6 col-s-9">
@@ -181,7 +194,7 @@ const MonthlyFixedExp = ((props:any) => {
                 <div className="aside">
                     <h3>Fixed Expenses Detail</h3>
                     <p>
-                        <a href="#">
+                        <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.MORTGAGE_LOAN)}>
                             Mortgage Loan
                         </a>
                     </p>
@@ -206,6 +219,8 @@ const MonthlyFixedExp = ((props:any) => {
                         </a>
                     </p>                    
                 </div>
+
+                <MortgageLoan modalId={MODAL_PAGE.MORTGAGE_LOAN} />
             </div>
         </div>          
     );    

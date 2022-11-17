@@ -17,6 +17,7 @@ const MISC_EXP_TYPE = {
     SCHOOL_ACTIVITIES: 'School & Activities',
     HOME_APPLIANCES: 'Home Appliances',
     HOME_REFURBISHMENTS: 'Home Refurbishments',
+    ENTERTAINMENT: "Entertainment"
 }
 
 const MONTH_LABELS = [
@@ -757,7 +758,7 @@ const RawExpensesData = [
                 type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
             },
             {
-                label: 'Soft (outstanding)',
+                label: 'DFS Sofa (outstanding)',
                 amount: 1961,
                 type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
             },  
@@ -772,7 +773,228 @@ const RawExpensesData = [
                 type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
             }                                             
         ]
-    },       
+    },
+    {
+        month: 10,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            }            
+        ],
+        utilityExpenses: [
+            {
+                label: "Water",
+                amount: 210.40
+            },            
+            {
+                label: "Petrol",
+                amount: 222.31
+            },
+            {
+                label: "Electricity",
+                amount: 34.35
+            },
+            {
+                label: "Gas",
+                amount: 36.54
+            },            
+        ],        
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 711.37,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 366.59,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },                
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Audrey Art',
+                amount: 35,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Allen Bike Club (membership fee)',
+                amount: 35,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Allen Bike Club (monthly attendance)',
+                amount: 28,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Sharps Bedroom + TV Unit (outstanding)',
+                amount: 7096.00,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Loft',
+                amount: 1763.83,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Kenwood Dashcam',
+                amount: 279.94,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+            {
+                label: 'Kenwood Dashcam (Installation)',
+                amount: 109.99,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+            {
+                label: 'Legoland Annual Pass',
+                amount: 476.00,
+                type: MISC_EXP_TYPE.ENTERTAINMENT
+            },
+            {
+                label: 'Solar Panel (deposit)',
+                amount: 2021.50,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },            
+        ]        
+    },
+    {
+        month: 11,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            },            
+            {
+                label: 'Home Appliances Warranty',
+                amount: 22.47,
+            },            
+        ],
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 0.00
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Bed and Mattress (outstanding)',
+                amount: 3161.98,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Car Tyres',
+                amount: 571,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+        ]        
+    }
 ];
 
 const initMiscExpData = ((input:any[]) => {
@@ -829,9 +1051,21 @@ const initMiscExpData = ((input:any[]) => {
             borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
             backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
             borderWidth: 2            
+        }
+    })());
+    
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.ENTERTAINMENT, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
         }       
     })());
-    return _data;
+
+    return _data;    
 });
 
 const aggregateMiscExpense = () => {
