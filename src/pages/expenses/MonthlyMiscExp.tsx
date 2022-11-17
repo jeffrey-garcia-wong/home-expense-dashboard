@@ -199,9 +199,9 @@ const MonthlyMiscExp = (props:any) => {
                 <div className="aside">
                     <h3>Misc Expenses Detail</h3>
                     <p>
-                        <a href="#">
+                        <span className="label">
                             School &amp; Activities Club
-                        </a>
+                        </span>
                     </p>
                 </div>
             </div>

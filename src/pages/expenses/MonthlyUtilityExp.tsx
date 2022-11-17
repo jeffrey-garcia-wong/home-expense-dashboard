@@ -214,16 +214,15 @@ const MonthlyUtilityExp = (props:any) => {
                 <div className="aside">
                     <h3>Utility Expenses Tips</h3>
                     <p>
-                        <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
+                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
                             Solar Panel
-                        </a>
+                        </span>
                     </p>
                     <p>
-                        <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
+                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
                             Car Petrol
-                        </a>
+                        </span>
                     </p>
-                    
                 </div>
             </div>
 

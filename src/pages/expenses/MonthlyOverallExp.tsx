@@ -14,8 +14,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
-import Side from '../../Side';
-
+import '../../Side.css';
 import './MonthlyExp.css';
 
 ChartJS.register(
@@ -197,9 +196,9 @@ const MonthlyOverallExp = (props:any) => {
                 <div className="aside">
                     <h3>Overall Expenses Detail</h3>
                     <p>
-                        <a href="#">
+                        <span className="label">
                             Average as of date
-                        </a>
+                        </span>
                     </p>
                 </div>
             </div>

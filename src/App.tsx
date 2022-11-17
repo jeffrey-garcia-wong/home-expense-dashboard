@@ -15,10 +15,6 @@ import './App.css';
 
 class App extends Component<any> {
   render() {
-    // const init = (() => {
-    //   console.log(`${JSON.stringify(ExpenseData.fixedExpenses)}`);
-    // })();
-
     const data = {
       overallExpenses: ExpenseData.overallExpenses,
       fixedExpenses: ExpenseData.fixedExpenses,

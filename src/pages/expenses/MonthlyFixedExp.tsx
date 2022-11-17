@@ -15,7 +15,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
-import Side from '../../Side';
+import '../../Side.css';
 
 import './MonthlyExp.css';
 import MortgageLoan from "../../modal/MortgageLoan";
@@ -209,9 +209,9 @@ const MonthlyFixedExp = ((props:any) => {
                 <div className="aside">
                     <h3>Fixed Expenses Tips</h3>
                     <p>
-                        <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.MORTGAGE_LOAN)}>
+                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.MORTGAGE_LOAN)}>
                             Mortgage Loan
-                        </a>
+                        </span>
                     </p>
                     {/* <p>
                         <a href="#">
