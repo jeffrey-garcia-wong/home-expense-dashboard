@@ -192,13 +192,13 @@ const MonthlyFixedExp = ((props:any) => {
 
             <div className="col-3 col-s-12">
                 <div className="aside">
-                    <h3>Fixed Expenses Detail</h3>
+                    <h3>Fixed Expenses Tips</h3>
                     <p>
                         <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.MORTGAGE_LOAN)}>
                             Mortgage Loan
                         </a>
                     </p>
-                    <p>
+                    {/* <p>
                         <a href="#">
                             HP Print
                         </a>
@@ -217,7 +217,7 @@ const MonthlyFixedExp = ((props:any) => {
                         <a href="#">
                             Electronic Appliances Warranty
                         </a>
-                    </p>                    
+                    </p>*/}
                 </div>
 
                 <MortgageLoan modalId={MODAL_PAGE.MORTGAGE_LOAN} />

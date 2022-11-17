@@ -182,12 +182,7 @@ const MonthlyMiscExp = (props:any) => {
                     <h3>Misc Expenses Detail</h3>
                     <p>
                         <a href="#">
-                            Audrey's school &amp; activities expense distribution
-                        </a>
-                    </p>
-                    <p>
-                        <a href="#">
-                            Allen's school &amp; activities expense distribution
+                            School &amp; Activities Club
                         </a>
                     </p>
                 </div>

@@ -197,12 +197,12 @@ const MonthlyUtilityExp = (props:any) => {
                     <h3>Utility Expenses Tips</h3>
                     <p>
                         <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
-                            How solar panel offset electricity expense?
+                            Solar Panel
                         </a>
                     </p>
                     <p>
                         <a href="#" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
-                            How much fuel your car spent to travel?
+                            Car Petrol
                         </a>
                     </p>
                     

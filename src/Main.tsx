@@ -33,16 +33,13 @@ const Main = () => {
                             </div>
                         </li>
                         <li>
+                            <a href="#" onClick={handleMenuClick}>Tax</a>
+                        </li>                        
+                        <li>
                             <a href="#" onClick={handleMenuClick}>Investments</a>
                         </li>
                         <li>
-                            <a href="#" onClick={handleMenuClick}>Tax</a>
-                        </li>
-                        <li>
                             <a href="#" onClick={handleMenuClick}>Insurance</a>
-                        </li>
-                        <li>
-                            <a href="#" onClick={handleMenuClick}>Outstanding</a>
                         </li>
                     </ul>  
                 </div>
