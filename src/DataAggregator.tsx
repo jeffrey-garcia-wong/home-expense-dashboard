@@ -1,0 +1,1388 @@
+import { 
+    RawExpensesData as RawData, 
+    OverallExpenseType as EXP_TYPE,
+    UtilityExpenseType as UTIL_EXP_TYPE, 
+    MiscExpenseType as MISC_EXP_TYPE
+} from "./pages/expenses/Data";
+
+// const EXP_TYPE = {
+//     FIXED: 'Fixed Expenses',
+//     UTILITY: 'Utility Expenses',
+//     MISC: 'Miscellaneous Expenses',
+//     AVG: 'Accumulated Average'
+// }
+
+// const UTIL_EXP_TYPE = {
+//     ELECTRICITY: 'Electricity',
+//     GAS: 'Gas',
+//     PETROL: 'Petrol',
+//     WATER: 'Water'
+// }
+
+// const MISC_EXP_TYPE = {
+//     SUPERMARKET: 'Food & Supermarket',
+//     OUTDOOR_DINING: 'Outdoor Dining',
+//     SCHOOL_ACTIVITIES: 'School & Activities',
+//     HOME_APPLIANCES: 'Home Appliances',
+//     HOME_REFURBISHMENTS: 'Home Refurbishments',
+//     ENTERTAINMENT: "Entertainment"
+// }
+
+const MONTH_LABELS = [
+    'Jan', 'Feb', 'Mar', 'Apr', 
+    'May', 'Jun', 'Jul', 'Aug', 
+    'Sept', 'Oct', 'Nov', 'Dec'
+]; 
+
+/*
+const RawExpensesData = [
+    {
+        month: 1,
+        fixedExpenses: [],
+        utilityExpenses: [],
+        miscExpenses: []
+    },
+    {
+        month: 2,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+        ],
+        utilityExpenses: [],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 382.18,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Harvey Water Softener',
+                amount: 1919.02,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+        ]
+    },
+    {
+        month: 3,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+        ],        
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 168.41
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 478.86,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 249.83,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Gymnastics',
+                amount: 92,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Audrey French',
+                amount: 39,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },            
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },                  
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },   
+            {
+                label: 'Verisure Alarm System',
+                amount: 457,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            }               
+        ]
+    },
+    {
+        month: 4,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+        ],                
+        utilityExpenses: [
+            {
+                label: "Water",
+                amount: 142.58
+            },
+            {
+                label: "Petrol",
+                amount: 125.92
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 772.34,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 109.31,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },  
+            {
+                label: 'Allen School (Sci, French, Music)',
+                amount: 372.26,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },       
+            {
+                label: 'Lawn Mowing',
+                amount: '55',
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Solar Panel',
+                amount: '150',
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            }       
+        ]
+    },
+    {
+        month: 5,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+        ],                
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 258.27
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 682.25,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 380.46,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Allen Baby Swim',
+                amount: 196.00,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Allen School (Gym, Art)',
+                amount: 162.26,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+        ]
+    },
+    {
+        month: 6,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+        ],                
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 227.42
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 561.78,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 463.99,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },   
+            {
+                label: 'Macbook Pro',
+                amount: 2093.98,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            }         
+        ]
+    },
+    {
+        month: 7,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+        ],                
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 236.22
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 683.44,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 345.15,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Audrey Gymnastics',
+                amount: 129,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Sharps Bedroom + TV Unit (deposit)',
+                amount: 2525,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'DFS Sofa (deposit)',
+                amount: 300,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Air Conditioner (deposit)',
+                amount: 745.5,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+            {
+                label: 'Dyson Cooler',
+                amount: 550,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            }  
+        ]
+    },    
+    {
+        month: 8,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            }
+        ],                
+        utilityExpenses: [
+            {
+                label: "Electricity",
+                amount: 503.50
+            },
+            {
+                label: "Gas",
+                amount: 287.26
+            },
+            {
+                label: "Petrol",
+                amount: 96.27
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 559.43,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 181.49,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },    
+            {
+                label: 'Allen Swim+ Summer Crash Course',
+                amount: 65,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },   
+            {
+                label: 'Audrey Swim+ Summer Crash Course',
+                amount: 65,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Air Conditioner (outstanding)',
+                amount: 745.5,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+            {
+                label: 'Allen Swim+ New Term',
+                amount: 125.3,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },   
+            {
+                label: 'Audrey Swim+ New Term',
+                amount: 125.3,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Easigrass (deposit)',
+                amount: 1862.78,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Audrey French',
+                amount: 112,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }                                             
+        ]
+    },           
+    {
+        month: 9,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            }
+        ],                
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 180.88
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 623.53,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 312.49,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },                
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Easigrass (outstanding)',
+                amount: 2078.79,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'DFS Sofa (outstanding)',
+                amount: 1961,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },  
+            {
+                label: 'Bed and Mattress (deposit)',
+                amount: 783,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },                      
+            {
+                label: 'Audrey Art',
+                amount: 35,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }                                             
+        ]
+    },
+    {
+        month: 10,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            }            
+        ],
+        utilityExpenses: [
+            {
+                label: "Water",
+                amount: 210.40
+            },            
+            {
+                label: "Petrol",
+                amount: 222.31
+            },
+            {
+                label: "Electricity",
+                amount: 34.35
+            },
+            {
+                label: "Gas",
+                amount: 36.54
+            },            
+        ],        
+        miscExpenses: [
+            {
+                label: 'Supermarket',
+                amount: 711.37,
+                type: MISC_EXP_TYPE.SUPERMARKET
+            },
+            {
+                label: 'Outdoor Dining',
+                amount: 366.59,
+                type: MISC_EXP_TYPE.OUTDOOR_DINING
+            },
+            {
+                label: 'Audrey Lunch',
+                amount: 50,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },                
+            {
+                label: 'Audrey Music',
+                amount: 120,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Audrey Art',
+                amount: 35,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Allen Bike Club (membership fee)',
+                amount: 35,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            },
+            {
+                label: 'Allen Bike Club (monthly attendance)',
+                amount: 28,
+                type: MISC_EXP_TYPE.SCHOOL_ACTIVITIES
+            }, 
+            {
+                label: 'Sharps Bedroom + TV Unit (outstanding)',
+                amount: 7096.00,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Loft',
+                amount: 1763.83,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Kenwood Dashcam',
+                amount: 279.94,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+            {
+                label: 'Kenwood Dashcam (Installation)',
+                amount: 109.99,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+            {
+                label: 'Legoland Annual Pass',
+                amount: 476.00,
+                type: MISC_EXP_TYPE.ENTERTAINMENT
+            },
+            {
+                label: 'Solar Panel (deposit)',
+                amount: 2021.50,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },            
+        ]        
+    },
+    {
+        month: 11,
+        fixedExpenses: [
+            {
+                label: 'HSBC Mortgage',
+                amount: 1576.40,
+            },
+            {
+                label: 'Home Insurance',
+                amount: 25.16
+            },
+            {
+                label: 'L&Q Management',
+                amount: 15.22
+            },
+            {
+                label: 'Hyperoptics Broadband',
+                amount: 63
+            },
+            {
+                label: 'Mobile SIM',
+                amount: 20
+            },
+            {
+                label: 'Salt for Water Softener',
+                amount: 35.9
+            },
+            {
+                label: 'Verisure Subscription',
+                amount: 43
+            },
+            {
+                label: 'Council Tax',
+                amount: 213
+            },
+            {
+                label: 'Water Pipe Insurance',
+                amount: 6
+            },
+            {
+                label: 'Car Insurance',
+                amount: 71.98
+            },
+            {
+                label: 'Road Tax',
+                amount: 13.56
+            },
+            {
+                label: 'TV Licensing',
+                amount: 13.25
+            },
+            {
+                label: 'HP Instant Ink',
+                amount: 2.99
+            },            
+            {
+                label: 'Home Appliances Warranty',
+                amount: 22.47,
+            },            
+        ],
+        utilityExpenses: [
+            {
+                label: "Petrol",
+                amount: 0.00
+            }
+        ],
+        miscExpenses: [
+            {
+                label: 'Bed and Mattress (outstanding)',
+                amount: 3161.98,
+                type: MISC_EXP_TYPE.HOME_REFURBISHMENTS
+            },
+            {
+                label: 'Car Tyres',
+                amount: 571,
+                type: MISC_EXP_TYPE.HOME_APPLIANCES
+            },
+        ]        
+    }
+];
+*/
+
+const initMiscExpData = ((input:any[]) => {
+    const _data = []; 
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.SUPERMARKET, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.OUTDOOR_DINING, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.SCHOOL_ACTIVITIES, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.HOME_APPLIANCES, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.HOME_REFURBISHMENTS, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }
+    })());
+    
+    _data.push((() => {
+        const rgb = color();
+        return { 
+            label: MISC_EXP_TYPE.ENTERTAINMENT, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0], 
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2            
+        }       
+    })());
+
+    return _data;    
+});
+
+const aggregateMiscExpense = () => {
+    const mapResult = RawData.flatMap((monthlyExp) => {
+        monthlyExp.miscExpenses.forEach((item) => {
+            item = Object.assign( item, { month:monthlyExp.month } );  
+        })
+        return monthlyExp.miscExpenses;   
+    });
+    // console.log(`${JSON.stringify(mapResult)}`);
+
+    const reduceResult = mapResult.reduce((tmp:any[], curr:any) => {
+        const _item = tmp.find((item:any) => {
+            return item.label == curr.type;
+        });
+        if (_item != null) {
+            _item.data[curr.month -1] += Number(curr.amount);
+        }
+        return tmp;
+    }, initMiscExpData(RawData));
+    // console.log(`${JSON.stringify(reduceResult)}`);
+
+    return { labels:MONTH_LABELS, datasets:reduceResult }; 
+};
+
+const initUtilityExpData = ((input:any[]) => {
+    const _data = [];
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.ELECTRICITY, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.GAS, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());    
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.WATER, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());
+    _data.push((() => {
+        const rgb = color();
+        return {
+            label: UTIL_EXP_TYPE.PETROL, 
+            data: [0,0,0,0,0,0,0,0,0,0,0,0],
+            borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2                        
+        }
+    })());
+    return _data;
+});
+
+const aggregateUtilityExpense = () => {
+    const mapResult = RawData.flatMap((monthlyExp) => {
+        monthlyExp.utilityExpenses.forEach((item) => {
+            item = Object.assign( item, { month:monthlyExp.month } );  
+        })
+        return monthlyExp.utilityExpenses;   
+    });
+    // console.log(`${JSON.stringify(mapResult)}`);
+
+    const reduceResult = mapResult.reduce((tmp:any[], curr:any) => {
+        const _item = tmp.find((item:any) => {
+            return item.label == curr.label;
+        });
+        if (_item != null) {
+            _item.data[curr.month -1] += Number(curr.amount);
+        }
+        return tmp;
+    }, initUtilityExpData(RawData));
+    // console.log(`${JSON.stringify(reduceResult)}`);
+
+    return { labels:MONTH_LABELS, datasets:reduceResult };    
+}
+
+const color = (() => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    // console.log(`${JSON.stringify({ r:r, g:g, b:b })}`);
+    return { r:r, g:g, b:b };
+})
+
+const aggregateFixedExpense = (() => {
+    const mapResult = RawData.flatMap((monthlyExp) => {
+        monthlyExp.fixedExpenses.forEach((item) => {
+            item = Object.assign( item, { month:monthlyExp.month } );  
+        })
+        return monthlyExp.fixedExpenses;   
+    });
+    // console.log(`${JSON.stringify(mapResult)}`);
+
+    const reduceResult = mapResult.reduce((tmp:any[], curr:any) => {
+        const _item = tmp.find((item:any) => {
+            return item.label == curr.label;
+        });
+        if (_item != null) {
+            _item.data[curr.month -1] += Number(curr.amount);
+        } else {
+            const rgb = color();
+            const i = tmp.push( { 
+                label:curr.label, 
+                data:[0,0,0,0,0,0,0,0,0,0,0,0],
+                borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+                backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+                borderWidth: 2                    
+            } );
+            tmp[i-1].data[curr.month -1] += curr.amount;
+        }
+        return tmp;
+    }, []);
+    // console.log(`${JSON.stringify(reduceResult)}`);
+
+    return { labels:MONTH_LABELS, datasets:reduceResult };    
+});
+
+const ExpenseData = {
+    overallExpenses: {
+        monthly: { labels:MONTH_LABELS, datasets:new Array<any>() },
+        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+    },
+    fixedExpenses: {
+        monthly: aggregateFixedExpense(),
+        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+    },
+    utilityExpenses: {
+        monthly: aggregateUtilityExpense(),
+        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+    },
+    miscExpenses: {
+        monthly: aggregateMiscExpense(),
+        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+    }
+};
+
+const aggregateOverallExpenses = (() => {
+    (() => {
+        const _fixedExpenses = ExpenseData.fixedExpenses.monthly.datasets.reduce((tmp:any[],expense:any) => {
+            for (let i=0; i<expense.data.length; i++) {
+                tmp[i] += expense.data[i];
+            }
+            return tmp;
+        }, [0,0,0,0,0,0,0,0,0,0,0,0,]);
+        // console.log(`${JSON.stringify(_fixedExpenses)}`);
+    
+        const rgb= color();
+        ExpenseData.overallExpenses.monthly.datasets.push({
+            label: EXP_TYPE.FIXED,
+            data: _fixedExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        });
+    })();
+    
+    (() => {
+        const _averageFixedExpenses = new Array<number>();
+        const _fixedExpenses = ExpenseData.overallExpenses.monthly.datasets[0].data;
+        let _accumulatedTotal:number = 0;
+        for (let i=0; i<MONTH_LABELS.length; i++) {
+            let _montlyTotal = Number(_fixedExpenses[i].toFixed(2)) * 100;
+            _montlyTotal = _montlyTotal / 100;
+            _accumulatedTotal += _montlyTotal;
+            let _average = _accumulatedTotal / (i+1);
+            // console.log(`@@@ -> ${_average}`);
+            _averageFixedExpenses.push(_average);
+        }
+
+        const rgb = color();
+        ExpenseData.fixedExpenses.average.datasets.push({
+            label: EXP_TYPE.AVG,
+            data: _averageFixedExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        });         
+    })();  
+
+    (() => {
+        const _utilityExpenses = ExpenseData.utilityExpenses.monthly.datasets.reduce((tmp:any[],expense:any) => {
+            for (let i=0; i<expense.data.length; i++) {
+                tmp[i] += expense.data[i];
+            }
+            return tmp;
+        }, [0,0,0,0,0,0,0,0,0,0,0,0,]);
+        // console.log(`${JSON.stringify(_utilityExpenses)}`);
+    
+        const rgb = color();
+        ExpenseData.overallExpenses.monthly.datasets.push({
+            label: EXP_TYPE.UTILITY,
+            data: _utilityExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        });
+    })();
+    
+    (() => {
+        const _averageUtilityExpenses = new Array<number>();
+        const _utilityExpenses = ExpenseData.overallExpenses.monthly.datasets[1].data;
+        let _accumulatedTotal:number = 0;
+        for (let i=0; i<MONTH_LABELS.length; i++) {
+            let _montlyTotal = Number(_utilityExpenses[i].toFixed(2)) * 100;
+            _montlyTotal = _montlyTotal / 100;
+            _accumulatedTotal += _montlyTotal;
+            let _average = _accumulatedTotal / (i+1);
+            // console.log(`@@@ -> ${_average}`);
+            _averageUtilityExpenses.push(_average);
+        }
+
+        const rgb = color();
+        ExpenseData.utilityExpenses.average.datasets.push({
+            label: EXP_TYPE.AVG,
+            data: _averageUtilityExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        });         
+    })();
+
+    (() => {
+        const _miscExpenses = ExpenseData.miscExpenses.monthly.datasets.reduce((tmp:any[],expense:any) => {
+            for (let i=0; i<expense.data.length; i++) {
+                tmp[i] += expense.data[i];
+            }
+            return tmp;
+        }, [0,0,0,0,0,0,0,0,0,0,0,0,]);
+        // console.log(`${JSON.stringify(_miscExpenses)}`);
+    
+        const rgb = color();
+        ExpenseData.overallExpenses.monthly.datasets.push({
+            label: EXP_TYPE.MISC,
+            data: _miscExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        });
+    })();
+
+    (() => {
+        const _averageMiscExpenses = new Array<number>();
+        const _miscExpenses = ExpenseData.overallExpenses.monthly.datasets[2].data;
+        let _accumulatedTotal:number = 0;
+        for (let i=0; i<MONTH_LABELS.length; i++) {
+            let _montlyTotal = Number(_miscExpenses[i].toFixed(2)) * 100;
+            _montlyTotal = _montlyTotal / 100;
+            _accumulatedTotal += _montlyTotal;
+            let _average = _accumulatedTotal / (i+1);
+            // console.log(`@@@ -> ${_average}`);
+            _averageMiscExpenses.push(_average);
+        }
+
+        const rgb = color();
+        ExpenseData.miscExpenses.average.datasets.push({
+            label: EXP_TYPE.AVG,
+            data: _averageMiscExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        });         
+    })();    
+
+    (() => {
+        const _averageOverallExpenses = new Array<number>();
+        const _fixedExpenses = ExpenseData.overallExpenses.monthly.datasets[0].data;
+        const _utilityExpenses = ExpenseData.overallExpenses.monthly.datasets[1].data;
+        const _miscExpenses = ExpenseData.overallExpenses.monthly.datasets[2].data;
+        let _accumulatedTotal:number = 0;
+        for (let i=0; i<MONTH_LABELS.length; i++) {
+            let _montlyTotal = 
+                Number(_fixedExpenses[i].toFixed(2))*100 +
+                Number(_utilityExpenses[i].toFixed(2)) * 100  +
+                Number(_miscExpenses[i].toFixed(2)) * 100;
+            _montlyTotal = _montlyTotal / 100;
+            _accumulatedTotal += _montlyTotal;
+            let _average = _accumulatedTotal / (i+1);
+            // console.log(`@@@ -> ${_average}`);
+            _averageOverallExpenses.push(_average);
+        }
+
+        const rgb = color();
+        ExpenseData.overallExpenses.average.datasets.push({
+            label: EXP_TYPE.AVG,
+            data: _averageOverallExpenses,
+            borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+            backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+            borderWidth: 2         
+        }); 
+    })();
+})();
+
+export default ExpenseData;

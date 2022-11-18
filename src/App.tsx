@@ -9,12 +9,20 @@ import MonthlyFixedExp from "./pages/expenses/MonthlyFixedExp";
 import MonthlyUtilityExp from "./pages/expenses/MonthlyUtilityExp";
 import MonthlyMiscExp from "./pages/expenses/MonthlyMiscExp";
 
-import ExpenseData from "./Data";
+import ExpenseData from "./DataAggregator";
 
 import './App.css';
 
 class App extends Component<any> {
+
+  constructor(props:any) {
+    super(props);
+    console.log(`constructor: ${this.constructor.name}`);
+  }
+
   render() {
+    console.log(`render: ${this.constructor.name}`);
+
     const data = {
       overallExpenses: ExpenseData.overallExpenses,
       fixedExpenses: ExpenseData.fixedExpenses,
@@ -37,6 +45,10 @@ class App extends Component<any> {
       </BrowserRouter>
     );
   }
+
+  componentDidMount() {
+    console.log(`componentDidMount: ${this.constructor.name}`);
+  }  
 }
 
 export default App;
