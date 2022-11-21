@@ -2,7 +2,7 @@ const OVERALL_EXP_TYPE = {
     FIXED: 'Fixed Expenses',
     UTILITY: 'Utility Expenses',
     MISC: 'Miscellaneous Expenses',
-    AVG: 'Accumulated Average'
+    AVG: 'Cumulative Average'
 }
 
 const UTIL_EXP_TYPE = {

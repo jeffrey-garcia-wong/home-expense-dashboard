@@ -9,7 +9,7 @@ import MonthlyFixedExp from "./pages/expenses/MonthlyFixedExp";
 import MonthlyUtilityExp from "./pages/expenses/MonthlyUtilityExp";
 import MonthlyMiscExp from "./pages/expenses/MonthlyMiscExp";
 
-import ExpenseData from "./DataAggregator";
+import ExpenseData from "./data/DataAggregator";
 
 import './App.css';
 
