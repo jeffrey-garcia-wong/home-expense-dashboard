@@ -15,10 +15,9 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
-import '../../Side.css';
+import Side from '../../../Side';
 
 import './MonthlyExp.css';
-import MortgageLoan from "../../modal/MortgageLoan";
 
 ChartJS.register(
     CategoryScale,
@@ -31,7 +30,7 @@ ChartJS.register(
     BarElement,
 );
 
-const MonthlyFixedExp = ((props:any) => {
+const MonthlyMiscExp = (props:any) => {
     const expData = props.expensesData;
 
     const barOptions = {
@@ -45,7 +44,7 @@ const MonthlyFixedExp = ((props:any) => {
                 duration: 2500,
                 from: 0
             }
-        },         
+        },        
         scales: {
             x: {
                 stacked: true,
@@ -141,7 +140,10 @@ const MonthlyFixedExp = ((props:any) => {
                 },
             }   
         },            
-    }    
+    } 
+
+    const lineOptionsAvg = JSON.parse(JSON.stringify(lineOptions));
+    lineOptionsAvg.plugins.title.text = 'Misc. expenses average in GBP (£)';
 
     const handleTabClick = (ev:MouseEvent) => {
         const tabItem = (ev.target as Element) as HTMLElement|null;
@@ -168,23 +170,11 @@ const MonthlyFixedExp = ((props:any) => {
             }
         }        
     };
-    
-    const MODAL_PAGE = {
-        MORTGAGE_LOAN: 'mortgage-loan',
-    }
-
-    const handleSideMenuClick = (modalPageId:string) => {
-        // console.log(modalPageId);
-        const modalPage = document.getElementById(modalPageId) as HTMLElement|null;
-        if (modalPage != null) {
-            modalPage.style.display = "block";
-        }
-    };
 
     return (
         <div>
             <div className="col-6 col-s-9">
-                <h1>Monthly Fixed Expenses</h1>
+                <h1>Monthly Miscellaneous Expenses</h1>
 
                 <div className="tab">
                     <button id="average" className="tablinks active" onClick={handleTabClick}>Average</button>
@@ -193,8 +183,8 @@ const MonthlyFixedExp = ((props:any) => {
                 </div>
 
                 <div id="average-content" className="tabcontent active">
-                    <Line options={lineOptions} data={expData.average} height="300" />
-                </div> 
+                    <Line options={lineOptionsAvg} data={expData.average} height="300" />
+                </div>
 
                 <div id="breakdown-content" className="tabcontent">
                     <Bar options={barOptions} data={expData.monthly} height="300" />
@@ -202,43 +192,21 @@ const MonthlyFixedExp = ((props:any) => {
 
                 <div id="trend-content" className="tabcontent">
                     <Line options={lineOptions} data={expData.monthly} height="300" />
-                </div>                
+                </div>
             </div>
 
             <div className="col-3 col-s-12">
                 <div className="aside">
-                    <h3>Fixed Expenses Tips</h3>
+                    <h3>Misc Expenses Detail</h3>
                     <p>
-                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.MORTGAGE_LOAN)}>
-                            Mortgage Loan
+                        <span className="label">
+                            School &amp; Activities Club
                         </span>
                     </p>
-                    {/* <p>
-                        <a href="#">
-                            HP Print
-                        </a>
-                    </p>                     
-                    <p>
-                        <a href="#">
-                            Car Insurance
-                        </a>
-                    </p>
-                    <p>
-                        <a href="#">
-                            Home Insurance
-                        </a>
-                    </p>
-                    <p>
-                        <a href="#">
-                            Electronic Appliances Warranty
-                        </a>
-                    </p>*/}
                 </div>
-
-                <MortgageLoan modalId={MODAL_PAGE.MORTGAGE_LOAN} />
             </div>
         </div>          
-    );    
-});
+    );
+}
 
-export default MonthlyFixedExp;
+export default MonthlyMiscExp;

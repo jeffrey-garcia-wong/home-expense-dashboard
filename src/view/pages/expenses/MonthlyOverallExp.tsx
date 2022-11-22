@@ -14,7 +14,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
-import '../../Side.css';
+import '../../../Side.css';
 import './MonthlyExp.css';
 
 ChartJS.register(

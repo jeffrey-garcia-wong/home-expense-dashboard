@@ -1,5 +1,4 @@
 import { MouseEvent } from "react";
-import { Link } from "react-router-dom";
 
 import {
     Chart as ChartJS,
@@ -16,10 +15,9 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
+import '../../../Side.css';
 import './MonthlyExp.css';
-import Side from '../../Side';
-import ElectricityExpTips from "../../modal/ElectricityExpTips";
-import PetrolExpTips from "../../modal/PetrolExpTips";
+import MortgageLoan from "../../modal/MortgageLoan";
 
 ChartJS.register(
     CategoryScale,
@@ -32,7 +30,7 @@ ChartJS.register(
     BarElement,
 );
 
-const MonthlyUtilityExp = (props:any) => {
+const MonthlyFixedExp = ((props:any) => {
     const expData = props.expensesData;
 
     const barOptions = {
@@ -46,7 +44,7 @@ const MonthlyUtilityExp = (props:any) => {
                 duration: 2500,
                 from: 0
             }
-        },            
+        },         
         scales: {
             x: {
                 stacked: true,
@@ -73,7 +71,7 @@ const MonthlyUtilityExp = (props:any) => {
                 callbacks: {
                     footer: function(items:any) {
                         var total = 0;
-                        for (var i = 0; i < expData['monthly']['datasets'].length; i++){
+                        for (var i = 0; i < expData['monthly']['datasets'].length; i++) {
                             total += expData['monthly']['datasets'][i].data[items[0].dataIndex] * 100;
                         }
                         return 'Total: £ ' + (total / 100).toFixed(2);
@@ -89,7 +87,7 @@ const MonthlyUtilityExp = (props:any) => {
             },
         },     
     };
-    
+
     const lineOptions = {
         animations: {
             x: {
@@ -112,11 +110,11 @@ const MonthlyUtilityExp = (props:any) => {
                 position: 'top' as const,
                 labels: {
                     usePointStyle: true,
-                },                    
+                },                      
             },
             title: {
                 display: true,
-                text: 'Utility expenses trend in GBP (£)',
+                text: 'Misc. expenses trend in GBP (£)',
             },
         },   
         scales: {
@@ -141,11 +139,8 @@ const MonthlyUtilityExp = (props:any) => {
                     stepSize: 50
                 },
             }   
-        }
-    }
-
-    const lineOptionsAvg = JSON.parse(JSON.stringify(lineOptions));
-    lineOptionsAvg.plugins.title.text = 'Utility expenses average in GBP (£)';
+        },            
+    }    
 
     const handleTabClick = (ev:MouseEvent) => {
         const tabItem = (ev.target as Element) as HTMLElement|null;
@@ -172,10 +167,9 @@ const MonthlyUtilityExp = (props:any) => {
             }
         }        
     };
-
+    
     const MODAL_PAGE = {
-        ELECTRICITY_EXP_TIPS: 'how-solar-panel-offset-electricity-expense',
-        PETROL_EXP_TIPS: 'how-much-fuel-your-car-spent-to-travel'
+        MORTGAGE_LOAN: 'mortgage-loan',
     }
 
     const handleSideMenuClick = (modalPageId:string) => {
@@ -189,7 +183,7 @@ const MonthlyUtilityExp = (props:any) => {
     return (
         <div>
             <div className="col-6 col-s-9">
-                <h1>Monthly Utility Expenses</h1>
+                <h1>Monthly Fixed Expenses</h1>
 
                 <div className="tab">
                     <button id="average" className="tablinks active" onClick={handleTabClick}>Average</button>
@@ -198,8 +192,8 @@ const MonthlyUtilityExp = (props:any) => {
                 </div>
 
                 <div id="average-content" className="tabcontent active">
-                    <Line options={lineOptionsAvg} data={expData.average} height="300" />
-                </div>  
+                    <Line options={lineOptions} data={expData.average} height="300" />
+                </div> 
 
                 <div id="breakdown-content" className="tabcontent">
                     <Bar options={barOptions} data={expData.monthly} height="300" />
@@ -212,24 +206,38 @@ const MonthlyUtilityExp = (props:any) => {
 
             <div className="col-3 col-s-12">
                 <div className="aside">
-                    <h3>Utility Expenses Tips</h3>
+                    <h3>Fixed Expenses Tips</h3>
                     <p>
-                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
-                            Solar Panel
+                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.MORTGAGE_LOAN)}>
+                            Mortgage Loan
                         </span>
                     </p>
+                    {/* <p>
+                        <a href="#">
+                            HP Print
+                        </a>
+                    </p>                     
                     <p>
-                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
-                            Car Petrol
-                        </span>
+                        <a href="#">
+                            Car Insurance
+                        </a>
                     </p>
+                    <p>
+                        <a href="#">
+                            Home Insurance
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Electronic Appliances Warranty
+                        </a>
+                    </p>*/}
                 </div>
+
+                <MortgageLoan modalId={MODAL_PAGE.MORTGAGE_LOAN} />
             </div>
+        </div>          
+    );    
+});
 
-            <ElectricityExpTips modalId={MODAL_PAGE.ELECTRICITY_EXP_TIPS} />
-            <PetrolExpTips modalId={MODAL_PAGE.PETROL_EXP_TIPS} />
-        </div>        
-    );
-}
-
-export default MonthlyUtilityExp;
+export default MonthlyFixedExp;
