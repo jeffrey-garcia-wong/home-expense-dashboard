@@ -5,6 +5,14 @@ import {
     MonthLabels as MONTH_LABELS,
 } from "./DataDictionary";
 
+const color = (() => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    // console.log(`${JSON.stringify({ r:r, g:g, b:b })}`);
+    return { r:r, g:g, b:b };
+})
+
 const initMiscExpData = ((input:any[]) => {
     const _data = []; 
     _data.push((() => {
@@ -166,14 +174,6 @@ const aggregateUtilityExpense = (RawData:any) => {
 
     return { labels:MONTH_LABELS, datasets:reduceResult };    
 }
-
-const color = (() => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    // console.log(`${JSON.stringify({ r:r, g:g, b:b })}`);
-    return { r:r, g:g, b:b };
-})
 
 const aggregateFixedExpense = ((RawData:any) => {
     const mapResult = RawData.flatMap((monthlyExp:any) => {
