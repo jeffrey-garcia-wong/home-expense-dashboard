@@ -1,15 +1,9 @@
 import { 
-    RawExpensesData as RawData, 
     OverallExpenseType as EXP_TYPE,
     UtilityExpenseType as UTIL_EXP_TYPE, 
-    MiscExpenseType as MISC_EXP_TYPE
-} from "./DataSource";
-
-const MONTH_LABELS = [
-    'Jan', 'Feb', 'Mar', 'Apr', 
-    'May', 'Jun', 'Jul', 'Aug', 
-    'Sept', 'Oct', 'Nov', 'Dec'
-]; 
+    MiscExpenseType as MISC_EXP_TYPE,
+    MonthLabels as MONTH_LABELS,
+} from "./DataDictionary";
 
 const initMiscExpData = ((input:any[]) => {
     const _data = []; 
@@ -82,9 +76,9 @@ const initMiscExpData = ((input:any[]) => {
     return _data;    
 });
 
-const aggregateMiscExpense = () => {
-    const mapResult = RawData.flatMap((monthlyExp) => {
-        monthlyExp.miscExpenses.forEach((item) => {
+const aggregateMiscExpense = (RawData:any) => {
+    const mapResult = RawData.flatMap((monthlyExp:any) => {
+        monthlyExp.miscExpenses.forEach((item:any) => {
             item = Object.assign( item, { month:monthlyExp.month } );  
         })
         return monthlyExp.miscExpenses;   
@@ -150,9 +144,9 @@ const initUtilityExpData = ((input:any[]) => {
     return _data;
 });
 
-const aggregateUtilityExpense = () => {
-    const mapResult = RawData.flatMap((monthlyExp) => {
-        monthlyExp.utilityExpenses.forEach((item) => {
+const aggregateUtilityExpense = (RawData:any) => {
+    const mapResult = RawData.flatMap((monthlyExp:any) => {
+        monthlyExp.utilityExpenses.forEach((item:any) => {
             item = Object.assign( item, { month:monthlyExp.month } );  
         })
         return monthlyExp.utilityExpenses;   
@@ -181,9 +175,9 @@ const color = (() => {
     return { r:r, g:g, b:b };
 })
 
-const aggregateFixedExpense = (() => {
-    const mapResult = RawData.flatMap((monthlyExp) => {
-        monthlyExp.fixedExpenses.forEach((item) => {
+const aggregateFixedExpense = ((RawData:any) => {
+    const mapResult = RawData.flatMap((monthlyExp:any) => {
+        monthlyExp.fixedExpenses.forEach((item:any) => {
             item = Object.assign( item, { month:monthlyExp.month } );  
         })
         return monthlyExp.fixedExpenses;   
@@ -214,26 +208,26 @@ const aggregateFixedExpense = (() => {
     return { labels:MONTH_LABELS, datasets:reduceResult };    
 });
 
-const ExpenseData = {
-    overallExpenses: {
-        monthly: { labels:MONTH_LABELS, datasets:new Array<any>() },
-        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
-    },
-    fixedExpenses: {
-        monthly: aggregateFixedExpense(),
-        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
-    },
-    utilityExpenses: {
-        monthly: aggregateUtilityExpense(),
-        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
-    },
-    miscExpenses: {
-        monthly: aggregateMiscExpense(),
-        average: { labels:MONTH_LABELS, datasets:new Array<any>() },
-    }
-};
+const aggregateExpenses = ((rawData:any) => {
+    const ExpenseData = {
+        overallExpenses: {
+            monthly: { labels:MONTH_LABELS, datasets:new Array<any>() },
+            average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+        },
+        fixedExpenses: {
+            monthly: aggregateFixedExpense(rawData),
+            average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+        },
+        utilityExpenses: {
+            monthly: aggregateUtilityExpense(rawData),
+            average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+        },
+        miscExpenses: {
+            monthly: aggregateMiscExpense(rawData),
+            average: { labels:MONTH_LABELS, datasets:new Array<any>() },
+        }
+    };
 
-const aggregateOverallExpenses = (() => {
     (() => {
         const _fixedExpenses = ExpenseData.fixedExpenses.monthly.datasets.reduce((tmp:any[],expense:any) => {
             for (let i=0; i<expense.data.length; i++) {
@@ -387,6 +381,8 @@ const aggregateOverallExpenses = (() => {
             borderWidth: 2         
         }); 
     })();
-})();
 
-export default ExpenseData;
+    return ExpenseData;
+});
+
+export default aggregateExpenses;

@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "chart.js": "^3.9.1",
+    "faker": "5.5.3",
+    "js-yaml": "^4.1.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
-    "faker": "5.5.3",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "rxjs": "^7.5.7",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
@@ -17,6 +19,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/faker": "5.5.3",
     "@types/jest": "^27.5.2",
+    "@types/js-yaml": "^4.0.5",
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
