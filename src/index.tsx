@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 import App from './App';
+import SorryPage from './view/pages/exception/SorryPage';
 import { DataSourceLoader, DataSource } from './service/DataService';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,12 +17,19 @@ const initializeApp = (() => {
         <React.StrictMode>
           <App data={DataSource.get()}/>
         </React.StrictMode>
-      )
+      );
     }
   ).catch(
     (error:any) => {
       console.error(`site cannot be loaded.`);
       // present custom error page
+      ReactDOM.createRoot(
+        document.getElementById('root') as HTMLElement
+      ).render(
+        <React.StrictMode>
+          <SorryPage />
+        </React.StrictMode>
+      )      
     }
   );;
 })

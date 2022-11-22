@@ -8,7 +8,7 @@ import MonthlyOverallExp from "./view/pages/expenses/MonthlyOverallExp";
 import MonthlyFixedExp from "./view/pages/expenses/MonthlyFixedExp";
 import MonthlyUtilityExp from "./view/pages/expenses/MonthlyUtilityExp";
 import MonthlyMiscExp from "./view/pages/expenses/MonthlyMiscExp";
-import NoPage from "./view/pages/NoPage";
+import NoPage from "./view/pages/exception/NoPage";
 import aggregateExpenses from "./data/DataAggregator";
 
 import './App.css';
