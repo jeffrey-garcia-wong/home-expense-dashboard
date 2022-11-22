@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 const initializeApp = (() => {
   DataSourceLoader.toPromise().then(
     (dataLoaded:boolean) => {
-      console.log(`loaded data: ${dataLoaded}`);
+      console.log(`has data loaded: ${dataLoaded}`);
       ReactDOM.createRoot(
         document.getElementById('root') as HTMLElement
       ).render(
@@ -31,7 +31,7 @@ const initializeApp = (() => {
         </React.StrictMode>
       )      
     }
-  );;
+  );
 })
 
 initializeApp();

@@ -8,7 +8,7 @@ export const convertYml = (text:string):Record<string, any>  => {
   
 const fetchData = ((dataFilePath:string) => {
     return new Observable<Record<string,any>> (
-        (observer) => {
+        (observer:any) => {
             const xhr = new XMLHttpRequest();
         
             xhr.ontimeout = (() => {
@@ -69,8 +69,8 @@ const dataSourceLoader = (() => {
                 return true;
             }
         ),
-        map((loadResult) => {
-            return loadResult;
+        map((loadResult:any) => {
+            return true;
         })
     );
   })();
