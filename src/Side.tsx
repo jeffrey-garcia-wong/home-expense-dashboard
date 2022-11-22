@@ -1,6 +1,7 @@
+import React from 'react';
 import './Side.css';
 
-const Side = (() => {
+function Side() {
   return (
     <div className="aside">
       <h2>Expenses</h2>
@@ -11,6 +12,6 @@ const Side = (() => {
       <p>Outstanding Payments</p>
     </div>
   );
-});
+}
 
-export default Side
+export default Side;

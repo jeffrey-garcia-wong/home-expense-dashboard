@@ -11,27 +11,27 @@ const initializeApp = (() => {
   DataSourceLoader.toPromise().then(
     () => {
       ReactDOM.createRoot(
-        document.getElementById('root') as HTMLElement
+        document.getElementById('root') as HTMLElement,
       ).render(
         <React.StrictMode>
-          <App data={DataSource.get()}/>
-        </React.StrictMode>
+          <App data={DataSource.get()} />
+        </React.StrictMode>,
       );
-    }
+    },
   ).catch(
     (error:any) => {
       console.error(`site cannot be loaded. ${error}`);
       // present custom error page
       ReactDOM.createRoot(
-        document.getElementById('root') as HTMLElement
+        document.getElementById('root') as HTMLElement,
       ).render(
         <React.StrictMode>
           <SorryPage />
-        </React.StrictMode>
-      )      
-    }
+        </React.StrictMode>,
+      );
+    },
   );
-})
+});
 
 initializeApp();
 
