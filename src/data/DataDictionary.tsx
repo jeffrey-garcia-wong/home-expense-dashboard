@@ -27,18 +27,7 @@ const MONTH_LABELS = [
     'Sept', 'Oct', 'Nov', 'Dec'
 ]; 
 
-export const OverallExpenseType = (() => {
-    return OVERALL_EXP_TYPE;
-})(); 
-
-export const UtilityExpenseType = (() => {
-    return UTIL_EXP_TYPE;
-})();
-
-export const MiscExpenseType = (() => {
-    return MISC_EXP_TYPE;
-})();
-
-export const MonthLabels = (() => {
-    return MONTH_LABELS;
-})();
+export const OverallExpenseType = OVERALL_EXP_TYPE;
+export const UtilityExpenseType = UTIL_EXP_TYPE;
+export const MiscExpenseType = MISC_EXP_TYPE;
+export const MonthLabels = MONTH_LABELS;

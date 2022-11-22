@@ -12,7 +12,7 @@ class NoPage extends Component<any> {
 
         return(
             <div>
-                <h1>No Page</h1>
+                <h1>Page not found</h1>
             </div>
         );
     }
