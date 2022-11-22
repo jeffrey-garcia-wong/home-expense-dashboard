@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 import App from './App';
-import { DataSourceLoader, DataSource } from './service/ConfigService';
+import { DataSourceLoader, DataSource } from './service/DataService';
 import reportWebVitals from './reportWebVitals';
 
 const initializeApp = (() => {
