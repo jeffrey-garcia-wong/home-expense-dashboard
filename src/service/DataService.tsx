@@ -69,7 +69,7 @@ const dataSourceLoader = (() => {
                 return true;
             }
         ),
-        map((loadResult:any) => {
+        map(() => {
             return true;
         })
     );

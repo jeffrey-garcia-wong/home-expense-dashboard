@@ -250,12 +250,12 @@ const aggregateExpenses = ((rawData:any) => {
     (() => {
         const _averageFixedExpenses = new Array<number>();
         const _fixedExpenses = ExpenseData.overallExpenses.monthly.datasets[0].data;
-        let _accumulatedTotal:number = 0;
+        let _accumulatedTotal = 0;
         for (let i=0; i<MONTH_LABELS.length; i++) {
             let _montlyTotal = Number(_fixedExpenses[i].toFixed(2)) * 100;
             _montlyTotal = _montlyTotal / 100;
             _accumulatedTotal += _montlyTotal;
-            let _average = _accumulatedTotal / (i+1);
+            const _average = _accumulatedTotal / (i+1);
             // console.log(`@@@ -> ${_average}`);
             _averageFixedExpenses.push(_average);
         }
@@ -292,12 +292,12 @@ const aggregateExpenses = ((rawData:any) => {
     (() => {
         const _averageUtilityExpenses = new Array<number>();
         const _utilityExpenses = ExpenseData.overallExpenses.monthly.datasets[1].data;
-        let _accumulatedTotal:number = 0;
+        let _accumulatedTotal = 0;
         for (let i=0; i<MONTH_LABELS.length; i++) {
             let _montlyTotal = Number(_utilityExpenses[i].toFixed(2)) * 100;
             _montlyTotal = _montlyTotal / 100;
             _accumulatedTotal += _montlyTotal;
-            let _average = _accumulatedTotal / (i+1);
+            const _average = _accumulatedTotal / (i+1);
             // console.log(`@@@ -> ${_average}`);
             _averageUtilityExpenses.push(_average);
         }
@@ -334,12 +334,12 @@ const aggregateExpenses = ((rawData:any) => {
     (() => {
         const _averageMiscExpenses = new Array<number>();
         const _miscExpenses = ExpenseData.overallExpenses.monthly.datasets[2].data;
-        let _accumulatedTotal:number = 0;
+        let _accumulatedTotal = 0;
         for (let i=0; i<MONTH_LABELS.length; i++) {
             let _montlyTotal = Number(_miscExpenses[i].toFixed(2)) * 100;
             _montlyTotal = _montlyTotal / 100;
             _accumulatedTotal += _montlyTotal;
-            let _average = _accumulatedTotal / (i+1);
+            const _average = _accumulatedTotal / (i+1);
             // console.log(`@@@ -> ${_average}`);
             _averageMiscExpenses.push(_average);
         }
@@ -359,7 +359,7 @@ const aggregateExpenses = ((rawData:any) => {
         const _fixedExpenses = ExpenseData.overallExpenses.monthly.datasets[0].data;
         const _utilityExpenses = ExpenseData.overallExpenses.monthly.datasets[1].data;
         const _miscExpenses = ExpenseData.overallExpenses.monthly.datasets[2].data;
-        let _accumulatedTotal:number = 0;
+        let _accumulatedTotal = 0;
         for (let i=0; i<MONTH_LABELS.length; i++) {
             let _montlyTotal = 
                 Number(_fixedExpenses[i].toFixed(2))*100 +
@@ -367,7 +367,7 @@ const aggregateExpenses = ((rawData:any) => {
                 Number(_miscExpenses[i].toFixed(2)) * 100;
             _montlyTotal = _montlyTotal / 100;
             _accumulatedTotal += _montlyTotal;
-            let _average = _accumulatedTotal / (i+1);
+            const _average = _accumulatedTotal / (i+1);
             // console.log(`@@@ -> ${_average}`);
             _averageOverallExpenses.push(_average);
         }

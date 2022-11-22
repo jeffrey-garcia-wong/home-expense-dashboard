@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './ExpTips.css';
 
 const PetrolExpTips = ((props:any) => {
@@ -35,7 +35,7 @@ const PetrolExpTips = ((props:any) => {
         console.log(`${attr}`);
 
         switch (attr) {
-            case 'fuelConsumptionMpgUnit':
+            case 'fuelConsumptionMpgUnit': {
                 const runUpdateFuelConsumption = (() => {
                     const _fuelConsumptionMpg = (val.indexOf(' MPG')==val.length-4) ? Number(val.substring(0, val.length>4?val.length-4:0)) : Number(val);
                     console.log(`${attr}: ${_fuelConsumptionMpg}`);
@@ -55,8 +55,8 @@ const PetrolExpTips = ((props:any) => {
                 });
                 runUpdateFuelConsumption();
                 break;
-
-            case 'petrolCostUnit':
+            }
+            case 'petrolCostUnit': {
                 const runUpdatePetrolCost = (() => {
                     const _pertrolCost = (val.indexOf('£ ')==0) ? Number(val.substring(2, val.length)) : Number(val);
                     console.log(`${attr}: ${_pertrolCost}`);
@@ -74,8 +74,8 @@ const PetrolExpTips = ((props:any) => {
                 });
                 runUpdatePetrolCost();
                 break;
-
-            case 'milesToTravel':
+            }
+            case 'milesToTravel': {
                 const runUpdateMilesToTravel = (() => {
                     const _milesToTravel = (val.indexOf(' Mile(s)')==val.length-8) ? Number(val.substring(0, val.length-8)) : Number(val);
                     console.log(`${attr}: ${_milesToTravel}`);
@@ -93,16 +93,17 @@ const PetrolExpTips = ((props:any) => {
                 });
                 runUpdateMilesToTravel();                 
                 break;
-
-            default: 
+            }
+            default: {
                 break;
+            }
         }
     });
 
     return (
         <div id={modalId} className="modal">
             <div className="modal-content">
-                <span id="modalClose" className="close" onClick={(ev:MouseEvent) => handleClose(modalId)}>
+                <span id="modalClose" className="close" onClick={() => handleClose(modalId)}>
                     &times;
                 </span>
                 <div className='row'>

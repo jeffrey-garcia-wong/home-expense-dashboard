@@ -1,10 +1,6 @@
-import React, { Component } from 'react'
-
 import './Side.css';
 
-const Side = ((props:any) => {
-  const { data } = props;
-
+const Side = (() => {
   return (
     <div className="aside">
       <h2>Expenses</h2>

@@ -15,8 +15,6 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
-import Side from '../../../Side';
-
 import './MonthlyExp.css';
 
 ChartJS.register(
@@ -70,8 +68,8 @@ const MonthlyMiscExp = (props:any) => {
             tooltip: {
                 callbacks: {
                     footer: function(items:any) {
-                        var total = 0;
-                        for (var i = 0; i < expData['monthly']['datasets'].length; i++) {
+                        let total = 0;
+                        for (let i = 0; i < expData['monthly']['datasets'].length; i++) {
                             total += expData['monthly']['datasets'][i].data[items[0].dataIndex] * 100;
                         }
                         return 'Total: £ ' + (total / 100).toFixed(2);
@@ -149,12 +147,14 @@ const MonthlyMiscExp = (props:any) => {
         const tabItem = (ev.target as Element) as HTMLElement|null;
         if (tabItem == null) return;
         // console.log(tabItem.id);
-        document.getElementById(tabItem.id + "-content")!.className = "tabcontent active";
-        document.getElementById(tabItem.id)!.className = "tablinks active";
+        tabItem.className = "tablinks active";
+
+        const tabItemContent = document.getElementById(tabItem.id + "-content");
+        if (tabItemContent != null) tabItemContent.className = "tabcontent active";
 
         const tabContentItems = document.getElementsByClassName("tabcontent active");
         if (tabContentItems!=null && tabContentItems.length>0) {
-            for (var i = 0; i < tabContentItems.length; i++) {
+            for (let i = 0; i < tabContentItems.length; i++) {
                 if (tabContentItems[i].id.indexOf(tabItem.id) < 0) {
                     tabContentItems[i].className = "tabcontent";
                 }
@@ -163,7 +163,7 @@ const MonthlyMiscExp = (props:any) => {
 
         const tabLinkItems = document.getElementsByClassName("tablinks active");
         if (tabLinkItems!=null && tabLinkItems.length>0) {
-            for (var i = 0; i < tabLinkItems.length; i++) {
+            for (let i = 0; i < tabLinkItems.length; i++) {
                 if (tabLinkItems[i].id.indexOf(tabItem.id) < 0) {
                     tabLinkItems[i].className = "tablinks";
                 }

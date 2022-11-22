@@ -17,7 +17,7 @@ const Main = () => {
     return (
         <div>
             <div className="header">
-                <h1>UK HOME</h1>
+                <h1>Home Expense Dashboard</h1>
             </div>
 
             <div className="row">
@@ -32,7 +32,7 @@ const Main = () => {
                                 <Link to="/monthlyMiscExp">Monthly Misc. Exp.</Link>
                             </div>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href="#" onClick={handleMenuClick}>Tax</a>
                         </li>                        
                         <li>
@@ -40,7 +40,7 @@ const Main = () => {
                         </li>
                         <li>
                             <a href="#" onClick={handleMenuClick}>Insurance</a>
-                        </li>
+                        </li> */}
                     </ul>  
                 </div>
 

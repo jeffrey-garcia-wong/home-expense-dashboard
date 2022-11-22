@@ -1,4 +1,4 @@
-import { MouseEvent, ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './ExpTips.css';
 
 const ElectricityExpTips = (props:any) => {
@@ -12,12 +12,12 @@ const ElectricityExpTips = (props:any) => {
         }
     });
 
-    const tariffPrice:number = 26.19;
-    const dailyAvgConsumption:number = 8;
+    const tariffPrice = 26.19;
+    const dailyAvgConsumption = 8;
     const yearlyAvgConsumption:number = dailyAvgConsumption * 365;
-    const yearlySolarEnergy:number = 1291.68;
+    const yearlySolarEnergy = 1291.68;
     const yearlyCostSaved:number = yearlySolarEnergy * tariffPrice / 100;
-    const estSolarPanelCost:number = 8086;
+    const estSolarPanelCost = 8086;
     const offsetYears:number = estSolarPanelCost / yearlyCostSaved;
 
     const [state, setState] = useState({ 
@@ -37,7 +37,7 @@ const ElectricityExpTips = (props:any) => {
         console.log(`${val}`);
 
         switch (attr) {
-            case 'tariffPriceUnit': 
+            case 'tariffPriceUnit': {
                 const runUpdateTariff = (() => {
                     const _tariffPrice = (val.charAt(val.length-1)=='p') ? Number(val.substring(0, val.length>1?val.length-1:0)) : Number(val);
                     const _yearlySolarEnergy = +state.yearlySolarEnergyUnit.substring(0, state.yearlySolarEnergyUnit.length-3);
@@ -56,8 +56,8 @@ const ElectricityExpTips = (props:any) => {
                 });
                 runUpdateTariff();
                 break;
-
-            case 'dailyAvgConsumptionUnit': 
+            }
+            case 'dailyAvgConsumptionUnit': {
                 const runUpdateDailyAvgConsumption = (() => {
                     const _dailyAvgConsumption = (val.indexOf('kWh')==val.length-3) ? Number(val.substring(0, val.length>3?+val.length-3:0)) : Number(val);
                     const _yearlyAvgConsumption = _dailyAvgConsumption * 365;
@@ -84,8 +84,8 @@ const ElectricityExpTips = (props:any) => {
                 });
                 runUpdateDailyAvgConsumption();
                 break;
-
-            case 'yearlySolarEnergyUnit':
+            }
+            case 'yearlySolarEnergyUnit': {
                 const runUpdateYearlySolarEnergy = (() => {
                     console.log(`${val}`);
                     const _yearlySolarEnergy = (val.indexOf('kWh')==val.length-3) ? Number(val.substring(0, val.length>3?val.length-3:0)) : Number(val);
@@ -112,8 +112,8 @@ const ElectricityExpTips = (props:any) => {
                 });
                 runUpdateYearlySolarEnergy();
                 break;
-
-            case 'estSolarPanelCostUnit':
+            }
+            case 'estSolarPanelCostUnit': {
                 const runUpdateSolarPanelCostUnit = (() => {
                     const _estSolarPanelCost = (val.indexOf('£')==0) ? Number(val.substring(1, val.length)) : Number(val);
                     const _yearlyCostSaved = Number(state.yearlyCostSavedUnit.substring(1, state.yearlyCostSavedUnit.length));
@@ -131,9 +131,10 @@ const ElectricityExpTips = (props:any) => {
                 runUpdateSolarPanelCostUnit();
                 
                 break;
-
-            default:
+            }
+            default: {
                 break;
+            }
         }
     });
 
@@ -150,7 +151,7 @@ const ElectricityExpTips = (props:any) => {
     return (
         <div id={modalId} className="modal">
             <div className="modal-content">
-                <span id="modalClose" className="close" onClick={(ev:MouseEvent) => handleClose(modalId)}>
+                <span id="modalClose" className="close" onClick={() => handleClose(modalId)}>
                     &times;
                 </span>
                 <div className='row'>

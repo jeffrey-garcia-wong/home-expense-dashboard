@@ -1,5 +1,4 @@
 import { MouseEvent } from "react";
-import { Link } from "react-router-dom";
 
 import {
     Chart as ChartJS,
@@ -17,7 +16,6 @@ import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 
 import './MonthlyExp.css';
-import Side from '../../../Side';
 import ElectricityExpTips from "../../modal/ElectricityExpTips";
 import PetrolExpTips from "../../modal/PetrolExpTips";
 
@@ -72,8 +70,8 @@ const MonthlyUtilityExp = (props:any) => {
             tooltip: {
                 callbacks: {
                     footer: function(items:any) {
-                        var total = 0;
-                        for (var i = 0; i < expData['monthly']['datasets'].length; i++){
+                        let total = 0;
+                        for (let i = 0; i < expData['monthly']['datasets'].length; i++){
                             total += expData['monthly']['datasets'][i].data[items[0].dataIndex] * 100;
                         }
                         return 'Total: £ ' + (total / 100).toFixed(2);
@@ -151,12 +149,14 @@ const MonthlyUtilityExp = (props:any) => {
         const tabItem = (ev.target as Element) as HTMLElement|null;
         if (tabItem == null) return;
         // console.log(tabItem.id);
-        document.getElementById(tabItem.id + "-content")!.className = "tabcontent active";
-        document.getElementById(tabItem.id)!.className = "tablinks active";
+        tabItem.className = "tablinks active";
 
+        const tabItemContent = document.getElementById(tabItem.id + "-content");
+        if (tabItemContent != null) tabItemContent.className = "tabcontent active";
+        
         const tabContentItems = document.getElementsByClassName("tabcontent active");
         if (tabContentItems!=null && tabContentItems.length>0) {
-            for (var i = 0; i < tabContentItems.length; i++) {
+            for (let i = 0; i < tabContentItems.length; i++) {
                 if (tabContentItems[i].id.indexOf(tabItem.id) < 0) {
                     tabContentItems[i].className = "tabcontent";
                 }
@@ -165,7 +165,7 @@ const MonthlyUtilityExp = (props:any) => {
 
         const tabLinkItems = document.getElementsByClassName("tablinks active");
         if (tabLinkItems!=null && tabLinkItems.length>0) {
-            for (var i = 0; i < tabLinkItems.length; i++) {
+            for (let i = 0; i < tabLinkItems.length; i++) {
                 if (tabLinkItems[i].id.indexOf(tabItem.id) < 0) {
                     tabLinkItems[i].className = "tablinks";
                 }
@@ -214,12 +214,12 @@ const MonthlyUtilityExp = (props:any) => {
                 <div className="aside">
                     <h3>Utility Expenses Tips</h3>
                     <p>
-                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
+                        <span className="label" onClick={() => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
                             Solar Panel
                         </span>
                     </p>
                     <p>
-                        <span className="label" onClick={(ev:MouseEvent) => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
+                        <span className="label" onClick={() => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
                             Car Petrol
                         </span>
                     </p>

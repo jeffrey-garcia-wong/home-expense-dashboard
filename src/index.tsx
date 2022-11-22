@@ -9,8 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 const initializeApp = (() => {
   DataSourceLoader.toPromise().then(
-    (dataLoaded:boolean) => {
-      console.log(`has data loaded: ${dataLoaded}`);
+    () => {
       ReactDOM.createRoot(
         document.getElementById('root') as HTMLElement
       ).render(
@@ -21,7 +20,7 @@ const initializeApp = (() => {
     }
   ).catch(
     (error:any) => {
-      console.error(`site cannot be loaded.`);
+      console.error(`site cannot be loaded. ${error}`);
       // present custom error page
       ReactDOM.createRoot(
         document.getElementById('root') as HTMLElement

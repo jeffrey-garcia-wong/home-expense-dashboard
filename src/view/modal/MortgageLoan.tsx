@@ -1,5 +1,5 @@
 
-import { ChangeEvent, MouseEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './ExpTips.css';
 
 const MortgageLoan = ((props:any) => {
@@ -13,11 +13,11 @@ const MortgageLoan = ((props:any) => {
         }
     });
     
-    const mortgageAmount:number = 416249;
-    const mortgateTerms:number = 25;
-    const interestRate:number = 5.54;
-    const monthlyRepaymentAmount:number = 2566;
-    const totalMortgageCost:number = 769826;
+    const mortgageAmount = 416249;
+    const mortgateTerms = 25;
+    const interestRate = 5.54;
+    const monthlyRepaymentAmount = 2566;
+    const totalMortgageCost = 769826;
 
     const [state, setState] = useState({
         mortgageAmountUnit: `£ ${mortgageAmount.toFixed(2)}`,
@@ -33,7 +33,7 @@ const MortgageLoan = ((props:any) => {
         console.log(`${attr}`);
 
         switch (attr) {
-            case 'mortgageAmountUnit':
+            case 'mortgageAmountUnit': {
                 const runUpdateMortgageAmount = (() => {
                     const _mortgageAmount = (val.indexOf('£ ')==0) ? Number(val.substring(2, val.length)) : Number(val);
                     console.log(`${attr}: ${_mortgageAmount}`);
@@ -51,7 +51,8 @@ const MortgageLoan = ((props:any) => {
                 });
                 runUpdateMortgageAmount();
                 break;
-            case 'mortgageTermsUnit':
+            }
+            case 'mortgageTermsUnit': {
                 const runUpdateMortgageTerms = (() => {
                     const _mortgageTerms = (val.indexOf(' years')==val.length-6) ? Number(val.substring(0, val.length>6?val.length-6:0)) : Number(val);
                     console.log(`${attr}: ${_mortgageTerms}`);
@@ -69,7 +70,8 @@ const MortgageLoan = ((props:any) => {
                 });
                 runUpdateMortgageTerms();
                 break;
-            case 'interestRateUnit':
+            }
+            case 'interestRateUnit': {
                 const runUpdateInterestRate = (() => {
                     const _interestRate = (val.indexOf(' %')==val.length-2) ? Number(val.substring(0, val.length>2?val.length-2:0)) : Number(val);
                     console.log(`${attr}: ${_interestRate}`);
@@ -87,13 +89,14 @@ const MortgageLoan = ((props:any) => {
                 });
                 runUpdateInterestRate();
                 break;
+            }
         }
     });
 
     return (
         <div id={modalId} className="modal">
             <div className="modal-content">
-                <span id="modalClose" className="close" onClick={(ev:MouseEvent) => handleClose(modalId)}>
+                <span id="modalClose" className="close" onClick={() => handleClose(modalId)}>
                     &times;
                 </span>
                 <div className='row'>
