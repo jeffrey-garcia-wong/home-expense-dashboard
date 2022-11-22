@@ -187,9 +187,9 @@ function MonthlyFixedExp(props:any) {
         <h1>Monthly Fixed Expenses</h1>
 
         <div className="tab">
-          <button id="average" className="tablinks active" onClick={handleTabClick}>Average</button>
-          <button id="breakdown" className="tablinks" onClick={handleTabClick}>Breakdown</button>
-          <button id="trend" className="tablinks" onClick={handleTabClick}>Trend</button>
+          <button id="average" type="button" className="tablinks active" onClick={handleTabClick}>Average</button>
+          <button id="breakdown" type="button" className="tablinks" onClick={handleTabClick}>Breakdown</button>
+          <button id="trend" type="button" className="tablinks" onClick={handleTabClick}>Trend</button>
         </div>
 
         <div id="average-content" className="tabcontent active">
