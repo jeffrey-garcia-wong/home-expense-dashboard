@@ -3,185 +3,205 @@ import {
   UtilityExpenseType as UTIL_EXP_TYPE,
   MiscExpenseType as MISC_EXP_TYPE,
   MonthLabels as MONTH_LABELS,
-} from './DataDictionary';
+} from "./DataDictionary";
 
-const color = (() => {
+const color = () => {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   // console.log(`${JSON.stringify({ r:r, g:g, b:b })}`);
   return { r, g, b };
-});
+};
 
-const initMiscExpData = ((input:any[]) => {
+const initMiscExpData = (input: any[]) => {
   const _data = [];
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: MISC_EXP_TYPE.SUPERMARKET,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: MISC_EXP_TYPE.SUPERMARKET,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
 
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: MISC_EXP_TYPE.OUTDOOR_DINING,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: MISC_EXP_TYPE.OUTDOOR_DINING,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
 
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: MISC_EXP_TYPE.SCHOOL_ACTIVITIES,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: MISC_EXP_TYPE.SCHOOL_ACTIVITIES,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
 
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: MISC_EXP_TYPE.HOME_APPLIANCES,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: MISC_EXP_TYPE.HOME_APPLIANCES,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
 
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: MISC_EXP_TYPE.HOME_REFURBISHMENTS,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: MISC_EXP_TYPE.HOME_REFURBISHMENTS,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
 
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: MISC_EXP_TYPE.ENTERTAINMENT,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: MISC_EXP_TYPE.ENTERTAINMENT,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
 
   return _data;
-});
+};
 
-const aggregateMiscExpense = (RawData:any) => {
-  const mapResult = RawData.flatMap((monthlyExp:any) => {
-    monthlyExp.miscExpenses.forEach((item:any) => {
+const aggregateMiscExpense = (RawData: any) => {
+  const mapResult = RawData.flatMap((monthlyExp: any) => {
+    monthlyExp.miscExpenses.forEach((item: any) => {
       item = Object.assign(item, { month: monthlyExp.month });
     });
     return monthlyExp.miscExpenses;
   });
-    // console.log(`${JSON.stringify(mapResult)}`);
+  // console.log(`${JSON.stringify(mapResult)}`);
 
-  const reduceResult = mapResult.reduce((tmp:any[], curr:any) => {
-    const _item = tmp.find((item:any) => item.label == curr.type);
+  const reduceResult = mapResult.reduce((tmp: any[], curr: any) => {
+    const _item = tmp.find((item: any) => item.label == curr.type);
     if (_item != null) {
       _item.data[curr.month - 1] += Number(curr.amount);
     }
     return tmp;
   }, initMiscExpData(RawData));
-    // console.log(`${JSON.stringify(reduceResult)}`);
+  // console.log(`${JSON.stringify(reduceResult)}`);
 
   return { labels: MONTH_LABELS, datasets: reduceResult };
 };
 
-const initUtilityExpData = ((input:any[]) => {
+const initUtilityExpData = (input: any[]) => {
   const _data = [];
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: UTIL_EXP_TYPE.ELECTRICITY,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: UTIL_EXP_TYPE.GAS,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: UTIL_EXP_TYPE.WATER,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
-  _data.push((() => {
-    const rgb = color();
-    return {
-      label: UTIL_EXP_TYPE.PETROL,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
-      backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
-      borderWidth: 2,
-    };
-  })());
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: UTIL_EXP_TYPE.ELECTRICITY,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: UTIL_EXP_TYPE.GAS,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: UTIL_EXP_TYPE.WATER,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
+  _data.push(
+    (() => {
+      const rgb = color();
+      return {
+        label: UTIL_EXP_TYPE.PETROL,
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
+        backgroundColor: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`,
+        borderWidth: 2,
+      };
+    })(),
+  );
   return _data;
-});
+};
 
-const aggregateUtilityExpense = (RawData:any) => {
-  const mapResult = RawData.flatMap((monthlyExp:any) => {
-    monthlyExp.utilityExpenses.forEach((item:any) => {
+const aggregateUtilityExpense = (RawData: any) => {
+  const mapResult = RawData.flatMap((monthlyExp: any) => {
+    monthlyExp.utilityExpenses.forEach((item: any) => {
       item = Object.assign(item, { month: monthlyExp.month });
     });
     return monthlyExp.utilityExpenses;
   });
-    // console.log(`${JSON.stringify(mapResult)}`);
+  // console.log(`${JSON.stringify(mapResult)}`);
 
-  const reduceResult = mapResult.reduce((tmp:any[], curr:any) => {
-    const _item = tmp.find((item:any) => item.label == curr.label);
+  const reduceResult = mapResult.reduce((tmp: any[], curr: any) => {
+    const _item = tmp.find((item: any) => item.label == curr.label);
     if (_item != null) {
       _item.data[curr.month - 1] += Number(curr.amount);
     }
     return tmp;
   }, initUtilityExpData(RawData));
-    // console.log(`${JSON.stringify(reduceResult)}`);
+  // console.log(`${JSON.stringify(reduceResult)}`);
 
   return { labels: MONTH_LABELS, datasets: reduceResult };
 };
 
-const aggregateFixedExpense = ((RawData:any) => {
-  const mapResult = RawData.flatMap((monthlyExp:any) => {
-    monthlyExp.fixedExpenses.forEach((item:any) => {
+const aggregateFixedExpense = (RawData: any) => {
+  const mapResult = RawData.flatMap((monthlyExp: any) => {
+    monthlyExp.fixedExpenses.forEach((item: any) => {
       item = Object.assign(item, { month: monthlyExp.month });
     });
     return monthlyExp.fixedExpenses;
   });
-    // console.log(`${JSON.stringify(mapResult)}`);
+  // console.log(`${JSON.stringify(mapResult)}`);
 
-  const reduceResult = mapResult.reduce((tmp:any[], curr:any) => {
-    const _item = tmp.find((item:any) => item.label == curr.label);
+  const reduceResult = mapResult.reduce((tmp: any[], curr: any) => {
+    const _item = tmp.find((item: any) => item.label == curr.label);
     if (_item != null) {
       _item.data[curr.month - 1] += Number(curr.amount);
     } else {
@@ -197,12 +217,12 @@ const aggregateFixedExpense = ((RawData:any) => {
     }
     return tmp;
   }, []);
-    // console.log(`${JSON.stringify(reduceResult)}`);
+  // console.log(`${JSON.stringify(reduceResult)}`);
 
   return { labels: MONTH_LABELS, datasets: reduceResult };
-});
+};
 
-const aggregateExpenses = ((rawData:any) => {
+const aggregateExpenses = (rawData: any) => {
   const ExpenseData = {
     overallExpenses: {
       monthly: { labels: MONTH_LABELS, datasets: new Array<any>() },
@@ -223,12 +243,15 @@ const aggregateExpenses = ((rawData:any) => {
   };
 
   (() => {
-    const _fixedExpenses = ExpenseData.fixedExpenses.monthly.datasets.reduce((tmp:any[], expense:any) => {
-      for (let i = 0; i < expense.data.length; i++) {
-        tmp[i] += expense.data[i];
-      }
-      return tmp;
-    }, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const _fixedExpenses = ExpenseData.fixedExpenses.monthly.datasets.reduce(
+      (tmp: any[], expense: any) => {
+        for (let i = 0; i < expense.data.length; i++) {
+          tmp[i] += expense.data[i];
+        }
+        return tmp;
+      },
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    );
     // console.log(`${JSON.stringify(_fixedExpenses)}`);
 
     const rgb = color();
@@ -265,12 +288,16 @@ const aggregateExpenses = ((rawData:any) => {
   })();
 
   (() => {
-    const _utilityExpenses = ExpenseData.utilityExpenses.monthly.datasets.reduce((tmp:any[], expense:any) => {
-      for (let i = 0; i < expense.data.length; i++) {
-        tmp[i] += expense.data[i];
-      }
-      return tmp;
-    }, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const _utilityExpenses =
+      ExpenseData.utilityExpenses.monthly.datasets.reduce(
+        (tmp: any[], expense: any) => {
+          for (let i = 0; i < expense.data.length; i++) {
+            tmp[i] += expense.data[i];
+          }
+          return tmp;
+        },
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      );
     // console.log(`${JSON.stringify(_utilityExpenses)}`);
 
     const rgb = color();
@@ -285,7 +312,8 @@ const aggregateExpenses = ((rawData:any) => {
 
   (() => {
     const _averageUtilityExpenses = new Array<number>();
-    const _utilityExpenses = ExpenseData.overallExpenses.monthly.datasets[1].data;
+    const _utilityExpenses =
+      ExpenseData.overallExpenses.monthly.datasets[1].data;
     let _accumulatedTotal = 0;
     for (let i = 0; i < MONTH_LABELS.length; i++) {
       let _montlyTotal = Number(_utilityExpenses[i].toFixed(2)) * 100;
@@ -307,12 +335,15 @@ const aggregateExpenses = ((rawData:any) => {
   })();
 
   (() => {
-    const _miscExpenses = ExpenseData.miscExpenses.monthly.datasets.reduce((tmp:any[], expense:any) => {
-      for (let i = 0; i < expense.data.length; i++) {
-        tmp[i] += expense.data[i];
-      }
-      return tmp;
-    }, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const _miscExpenses = ExpenseData.miscExpenses.monthly.datasets.reduce(
+      (tmp: any[], expense: any) => {
+        for (let i = 0; i < expense.data.length; i++) {
+          tmp[i] += expense.data[i];
+        }
+        return tmp;
+      },
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    );
     // console.log(`${JSON.stringify(_miscExpenses)}`);
 
     const rgb = color();
@@ -351,13 +382,15 @@ const aggregateExpenses = ((rawData:any) => {
   (() => {
     const _averageOverallExpenses = new Array<number>();
     const _fixedExpenses = ExpenseData.overallExpenses.monthly.datasets[0].data;
-    const _utilityExpenses = ExpenseData.overallExpenses.monthly.datasets[1].data;
+    const _utilityExpenses =
+      ExpenseData.overallExpenses.monthly.datasets[1].data;
     const _miscExpenses = ExpenseData.overallExpenses.monthly.datasets[2].data;
     let _accumulatedTotal = 0;
     for (let i = 0; i < MONTH_LABELS.length; i++) {
-      let _montlyTotal = Number(_fixedExpenses[i].toFixed(2)) * 100
-                + Number(_utilityExpenses[i].toFixed(2)) * 100
-                + Number(_miscExpenses[i].toFixed(2)) * 100;
+      let _montlyTotal =
+        Number(_fixedExpenses[i].toFixed(2)) * 100 +
+        Number(_utilityExpenses[i].toFixed(2)) * 100 +
+        Number(_miscExpenses[i].toFixed(2)) * 100;
       _montlyTotal /= 100;
       _accumulatedTotal += _montlyTotal;
       const _average = _accumulatedTotal / (i + 1);
@@ -376,6 +409,6 @@ const aggregateExpenses = ((rawData:any) => {
   })();
 
   return ExpenseData;
-});
+};
 
 export default aggregateExpenses;

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SorryPage extends Component<any> {
-  constructor(props:any) {
+  constructor(props: any) {
     super(props);
     console.log(`constructor: ${this.constructor.name}`);
   }
@@ -11,12 +11,9 @@ class SorryPage extends Component<any> {
 
     return (
       <div>
-        <h1>
-          Sorry, we have a little problem with the site now.
-        </h1>
+        <h1>Sorry, we have a little problem with the site now.</h1>
         <h2>
-          The engineer is working on it, please check back
-          at a later time.
+          The engineer is working on it, please check back at a later time.
         </h2>
       </div>
     );

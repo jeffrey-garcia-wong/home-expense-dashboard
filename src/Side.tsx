@@ -1,5 +1,5 @@
-import React from 'react';
-import './Side.css';
+import React from "react";
+import "./Side.css";
 
 function Side() {
   return (

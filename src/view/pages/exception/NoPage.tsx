@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class NoPage extends Component<any> {
-  constructor(props:any) {
+  constructor(props: any) {
     super(props);
     console.log(`constructor: ${this.constructor.name}`);
   }

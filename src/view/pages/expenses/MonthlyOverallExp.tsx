@@ -1,4 +1,4 @@
-import React, { MouseEvent, Component } from 'react';
+import React, { MouseEvent, Component } from "react";
 
 import {
   Chart as ChartJS,
@@ -9,12 +9,12 @@ import {
   Legend,
   BarElement,
   LineElement,
-} from 'chart.js';
+} from "chart.js";
 
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar, Line } from "react-chartjs-2";
 
-import '../../../Side.css';
-import './MonthlyExp.css';
+import "../../../Side.css";
+import "./MonthlyExp.css";
 
 ChartJS.register(
   CategoryScale,
@@ -31,7 +31,7 @@ interface Props {
 }
 
 class MonthlyOverallExp extends Component<Props> {
-  constructor(props:Props) {
+  constructor(props: Props) {
     super(props);
     console.log(`constructor: ${this.constructor.name}`);
   }
@@ -59,7 +59,7 @@ class MonthlyOverallExp extends Component<Props> {
           grid: {
             drawBorder: true,
             drawOnChartArea: true,
-            color: '#666666',
+            color: "#666666",
           },
         },
         y: {
@@ -67,7 +67,7 @@ class MonthlyOverallExp extends Component<Props> {
           grid: {
             drawBorder: true,
             drawOnChartArea: true,
-            color: '#666666',
+            color: "#666666",
           },
           ticks: {
             stepSize: 100,
@@ -77,21 +77,22 @@ class MonthlyOverallExp extends Component<Props> {
       plugins: {
         tooltip: {
           callbacks: {
-            footer(items:any) {
+            footer(items: any) {
               let total = 0;
               for (let i = 0; i < expData.monthly.datasets.length; i++) {
-                total += expData.monthly.datasets[i].data[items[0].dataIndex] * 100;
+                total +=
+                  expData.monthly.datasets[i].data[items[0].dataIndex] * 100;
               }
               return `Total: £ ${(total / 100).toFixed(2)}`;
             },
           },
         },
         legend: {
-          position: 'top' as const,
+          position: "top" as const,
         },
         title: {
           display: true,
-          text: 'Monthly overall expenses in GBP (£)',
+          text: "Monthly overall expenses in GBP (£)",
         },
       },
     };
@@ -108,21 +109,21 @@ class MonthlyOverallExp extends Component<Props> {
         },
       },
       interaction: {
-        mode: 'index' as const,
+        mode: "index" as const,
         intersect: false,
       },
       stacked: false,
       responsive: true,
       plugins: {
         legend: {
-          position: 'top' as const,
+          position: "top" as const,
           labels: {
             usePointStyle: true,
           },
         },
         title: {
           display: true,
-          text: 'Monthly expenses trend in GBP (£)',
+          text: "Monthly expenses trend in GBP (£)",
         },
       },
       scales: {
@@ -130,17 +131,17 @@ class MonthlyOverallExp extends Component<Props> {
           grid: {
             drawBorder: true,
             drawOnChartArea: true,
-            color: '#666666',
+            color: "#666666",
           },
         },
         y: {
-          type: 'linear' as const,
+          type: "linear" as const,
           display: true,
-          position: 'left' as const,
+          position: "left" as const,
           grid: {
             drawBorder: true,
             drawOnChartArea: true,
-            color: '#666666',
+            color: "#666666",
           },
           beginAtZero: true,
           ticks: {
@@ -151,31 +152,33 @@ class MonthlyOverallExp extends Component<Props> {
     };
 
     const lineOptionsAvg = JSON.parse(JSON.stringify(lineOptions));
-    lineOptionsAvg.plugins.title.text = 'Monthly expenses average in GBP (£)';
+    lineOptionsAvg.plugins.title.text = "Monthly expenses average in GBP (£)";
 
-    const handleTabClick = (ev:MouseEvent) => {
-      const tabItem = (ev.target as Element) as HTMLElement | null;
+    const handleTabClick = (ev: MouseEvent) => {
+      const tabItem = ev.target as Element as HTMLElement | null;
       if (tabItem == null) return;
       // console.log(tabItem.id);
-      tabItem.className = 'tablinks active';
+      tabItem.className = "tablinks active";
 
       const tabItemContent = document.getElementById(`${tabItem.id}-content`);
-      if (tabItemContent != null) tabItemContent.className = 'tabcontent active';
+      if (tabItemContent != null)
+        tabItemContent.className = "tabcontent active";
 
-      const tabContentItems = document.getElementsByClassName('tabcontent active');
+      const tabContentItems =
+        document.getElementsByClassName("tabcontent active");
       if (tabContentItems != null && tabContentItems.length > 0) {
         for (let i = 0; i < tabContentItems.length; i++) {
           if (tabContentItems[i].id.indexOf(tabItem.id) < 0) {
-            tabContentItems[i].className = 'tabcontent';
+            tabContentItems[i].className = "tabcontent";
           }
         }
       }
 
-      const tabLinkItems = document.getElementsByClassName('tablinks active');
+      const tabLinkItems = document.getElementsByClassName("tablinks active");
       if (tabLinkItems != null && tabLinkItems.length > 0) {
         for (let i = 0; i < tabLinkItems.length; i++) {
           if (tabLinkItems[i].id.indexOf(tabItem.id) < 0) {
-            tabLinkItems[i].className = 'tablinks';
+            tabLinkItems[i].className = "tablinks";
           }
         }
       }
@@ -187,13 +190,38 @@ class MonthlyOverallExp extends Component<Props> {
           <h1>Monthly Overall Expenses</h1>
 
           <div className="tab">
-            <button id="average" type="button" className="tablinks active" onClick={handleTabClick}>Average</button>
-            <button id="breakdown" type="button" className="tablinks" onClick={handleTabClick}>Breakdown</button>
-            <button id="trend" type="button" className="tablinks" onClick={handleTabClick}>Trend</button>
+            <button
+              id="average"
+              type="button"
+              className="tablinks active"
+              onClick={handleTabClick}
+            >
+              Average
+            </button>
+            <button
+              id="breakdown"
+              type="button"
+              className="tablinks"
+              onClick={handleTabClick}
+            >
+              Breakdown
+            </button>
+            <button
+              id="trend"
+              type="button"
+              className="tablinks"
+              onClick={handleTabClick}
+            >
+              Trend
+            </button>
           </div>
 
           <div id="average-content" className="tabcontent active">
-            <Line options={lineOptionsAvg} data={expData.average} height="300" />
+            <Line
+              options={lineOptionsAvg}
+              data={expData.average}
+              height="300"
+            />
           </div>
 
           <div id="breakdown-content" className="tabcontent">
@@ -209,9 +237,7 @@ class MonthlyOverallExp extends Component<Props> {
           <div className="aside">
             <h3>Overall Expenses Detail</h3>
             <p>
-              <span className="label">
-                Archives
-              </span>
+              <span className="label">Archives</span>
             </p>
           </div>
         </div>

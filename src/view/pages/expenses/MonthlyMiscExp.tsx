@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent } from "react";
 
 import {
   Chart as ChartJS,
@@ -10,11 +10,11 @@ import {
   PointElement,
   LineElement,
   BarElement,
-} from 'chart.js';
+} from "chart.js";
 
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar, Line } from "react-chartjs-2";
 
-import './MonthlyExp.css';
+import "./MonthlyExp.css";
 
 ChartJS.register(
   CategoryScale,
@@ -27,7 +27,7 @@ ChartJS.register(
   BarElement,
 );
 
-function MonthlyMiscExp(props:any) {
+function MonthlyMiscExp(props: any) {
   const expData = props.expensesData;
 
   const barOptions = {
@@ -48,7 +48,7 @@ function MonthlyMiscExp(props:any) {
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
       },
       y: {
@@ -56,7 +56,7 @@ function MonthlyMiscExp(props:any) {
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
         ticks: {
           stepSize: 100,
@@ -66,21 +66,22 @@ function MonthlyMiscExp(props:any) {
     plugins: {
       tooltip: {
         callbacks: {
-          footer(items:any) {
+          footer(items: any) {
             let total = 0;
             for (let i = 0; i < expData.monthly.datasets.length; i++) {
-              total += expData.monthly.datasets[i].data[items[0].dataIndex] * 100;
+              total +=
+                expData.monthly.datasets[i].data[items[0].dataIndex] * 100;
             }
             return `Total: £ ${(total / 100).toFixed(2)}`;
           },
         },
       },
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: true,
-        text: 'Monthly overall expenses in GBP (£)',
+        text: "Monthly overall expenses in GBP (£)",
       },
     },
   };
@@ -97,21 +98,21 @@ function MonthlyMiscExp(props:any) {
       },
     },
     interaction: {
-      mode: 'index' as const,
+      mode: "index" as const,
       intersect: false,
     },
     stacked: false,
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
         labels: {
           usePointStyle: true,
         },
       },
       title: {
         display: true,
-        text: 'Misc. expenses trend in GBP (£)',
+        text: "Misc. expenses trend in GBP (£)",
       },
     },
     scales: {
@@ -119,17 +120,17 @@ function MonthlyMiscExp(props:any) {
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
       },
       y: {
-        type: 'linear' as const,
+        type: "linear" as const,
         display: true,
-        position: 'left' as const,
+        position: "left" as const,
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
         beginAtZero: true,
         ticks: {
@@ -140,31 +141,32 @@ function MonthlyMiscExp(props:any) {
   };
 
   const lineOptionsAvg = JSON.parse(JSON.stringify(lineOptions));
-  lineOptionsAvg.plugins.title.text = 'Misc. expenses average in GBP (£)';
+  lineOptionsAvg.plugins.title.text = "Misc. expenses average in GBP (£)";
 
-  const handleTabClick = (ev:MouseEvent) => {
-    const tabItem = (ev.target as Element) as HTMLElement | null;
+  const handleTabClick = (ev: MouseEvent) => {
+    const tabItem = ev.target as Element as HTMLElement | null;
     if (tabItem == null) return;
     // console.log(tabItem.id);
-    tabItem.className = 'tablinks active';
+    tabItem.className = "tablinks active";
 
     const tabItemContent = document.getElementById(`${tabItem.id}-content`);
-    if (tabItemContent != null) tabItemContent.className = 'tabcontent active';
+    if (tabItemContent != null) tabItemContent.className = "tabcontent active";
 
-    const tabContentItems = document.getElementsByClassName('tabcontent active');
+    const tabContentItems =
+      document.getElementsByClassName("tabcontent active");
     if (tabContentItems != null && tabContentItems.length > 0) {
       for (let i = 0; i < tabContentItems.length; i++) {
         if (tabContentItems[i].id.indexOf(tabItem.id) < 0) {
-          tabContentItems[i].className = 'tabcontent';
+          tabContentItems[i].className = "tabcontent";
         }
       }
     }
 
-    const tabLinkItems = document.getElementsByClassName('tablinks active');
+    const tabLinkItems = document.getElementsByClassName("tablinks active");
     if (tabLinkItems != null && tabLinkItems.length > 0) {
       for (let i = 0; i < tabLinkItems.length; i++) {
         if (tabLinkItems[i].id.indexOf(tabItem.id) < 0) {
-          tabLinkItems[i].className = 'tablinks';
+          tabLinkItems[i].className = "tablinks";
         }
       }
     }
@@ -176,9 +178,30 @@ function MonthlyMiscExp(props:any) {
         <h1>Monthly Miscellaneous Expenses</h1>
 
         <div className="tab">
-          <button id="average" type="button" className="tablinks active" onClick={handleTabClick}>Average</button>
-          <button id="breakdown" type="button" className="tablinks" onClick={handleTabClick}>Breakdown</button>
-          <button id="trend" type="button" className="tablinks" onClick={handleTabClick}>Trend</button>
+          <button
+            id="average"
+            type="button"
+            className="tablinks active"
+            onClick={handleTabClick}
+          >
+            Average
+          </button>
+          <button
+            id="breakdown"
+            type="button"
+            className="tablinks"
+            onClick={handleTabClick}
+          >
+            Breakdown
+          </button>
+          <button
+            id="trend"
+            type="button"
+            className="tablinks"
+            onClick={handleTabClick}
+          >
+            Trend
+          </button>
         </div>
 
         <div id="average-content" className="tabcontent active">
@@ -198,9 +221,7 @@ function MonthlyMiscExp(props:any) {
         <div className="aside">
           <h3>Misc Expenses Detail</h3>
           <p>
-            <span className="label">
-              School &amp; Activities Club
-            </span>
+            <span className="label">School &amp; Activities Club</span>
           </p>
         </div>
       </div>

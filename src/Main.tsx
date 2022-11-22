@@ -1,16 +1,17 @@
-import React, { MouseEvent } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React, { MouseEvent } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 function Main() {
-  const handleMenuClick = (ev:MouseEvent) => {
+  const handleMenuClick = (ev: MouseEvent) => {
     // console.log(`{ev.target}`);
-    const dropDownMenu = (ev.target as Element).nextElementSibling as HTMLElement | null;
+    const dropDownMenu = (ev.target as Element)
+      .nextElementSibling as HTMLElement | null;
     // console.log(dropDownMenu);
     if (dropDownMenu == null) return;
-    if (dropDownMenu.style.display === 'block') {
-      dropDownMenu.style.display = 'none';
+    if (dropDownMenu.style.display === "block") {
+      dropDownMenu.style.display = "none";
     } else {
-      dropDownMenu.style.display = 'block';
+      dropDownMenu.style.display = "block";
     }
   };
 
@@ -24,7 +25,9 @@ function Main() {
         <div className="col-3 col-s-3 menu">
           <ul>
             <li>
-              <a href="#" onClick={handleMenuClick}>Expenses</a>
+              <a href="#" onClick={handleMenuClick}>
+                Expenses
+              </a>
               <div className="drop-down-menu">
                 <Link to="/monthlyOverallExp">Monthly Overall Exp.</Link>
                 <Link to="/monthlyFixedExp">Monthly Fixed Exp.</Link>
@@ -50,7 +53,10 @@ function Main() {
       </div>
 
       <div className="footer">
-        <p>Resize the browser window to see how the content respond to the resizing.</p>
+        <p>
+          Resize the browser window to see how the content respond to the
+          resizing.
+        </p>
       </div>
     </div>
   );

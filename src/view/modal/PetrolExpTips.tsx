@@ -1,16 +1,16 @@
-import React, { ChangeEvent, useState } from 'react';
-import './ExpTips.css';
+import React, { ChangeEvent, useState } from "react";
+import "./ExpTips.css";
 
-function PetrolExpTips(props:any) {
+function PetrolExpTips(props: any) {
   const { modalId } = props;
 
-  const handleClose = ((modalId:string) => {
+  const handleClose = (modalId: string) => {
     const modalPage = document.getElementById(modalId) as HTMLElement | null;
     // console.log(modalPage);
     if (modalPage != null) {
-      modalPage.style.display = 'none';
+      modalPage.style.display = "none";
     }
-  });
+  };
 
   const fuelConsumptionMpg = 28.5;
   const LITRES_PER_GALLON = 4.54609;
@@ -29,40 +29,66 @@ function PetrolExpTips(props:any) {
     totalPriceCostUnit: `£ ${totalPetrolCost.toFixed(3)}`,
   });
 
-  const updateFuelConsumption = ((event:ChangeEvent) => {
+  const updateFuelConsumption = (event: ChangeEvent) => {
     const attr = (event.target as HTMLInputElement).name;
     const val = (event.target as HTMLInputElement).value;
     console.log(`${attr}`);
 
     switch (attr) {
-      case 'fuelConsumptionMpgUnit': {
-        const runUpdateFuelConsumption = (() => {
-          const _fuelConsumptionMpg = (val.indexOf(' MPG') == val.length - 4) ? Number(val.substring(0, val.length > 4 ? val.length - 4 : 0)) : Number(val);
+      case "fuelConsumptionMpgUnit": {
+        const runUpdateFuelConsumption = () => {
+          const _fuelConsumptionMpg =
+            val.indexOf(" MPG") == val.length - 4
+              ? Number(val.substring(0, val.length > 4 ? val.length - 4 : 0))
+              : Number(val);
           console.log(`${attr}: ${_fuelConsumptionMpg}`);
           const _fuelConsumptionMpl = _fuelConsumptionMpg / LITRES_PER_GALLON;
           const _fuleConsumptionLpm = 1 / _fuelConsumptionMpl;
-          const _pertrolCostUnit = state.petrolCostUnit.substring(2, state.petrolCostUnit.length);
-          const _milesToTravel = state.milesToTravelUnit.substring(0, state.milesToTravelUnit.length - 8);
-          const _totalPetrolCost = _fuleConsumptionLpm * Number(_pertrolCostUnit) * Number(_milesToTravel);
+          const _pertrolCostUnit = state.petrolCostUnit.substring(
+            2,
+            state.petrolCostUnit.length,
+          );
+          const _milesToTravel = state.milesToTravelUnit.substring(
+            0,
+            state.milesToTravelUnit.length - 8,
+          );
+          const _totalPetrolCost =
+            _fuleConsumptionLpm *
+            Number(_pertrolCostUnit) *
+            Number(_milesToTravel);
           setState({
             fuelConsumptionMpgUnit: `${_fuelConsumptionMpg.toFixed(3)} MPG`,
-            fuelConsumptionMplUnit: `${_fuelConsumptionMpl.toFixed(3)} Miles/Litre`,
-            fuleConsumptionLpmUnit: `${_fuleConsumptionLpm.toFixed(3)} Litres/Miles`,
+            fuelConsumptionMplUnit: `${_fuelConsumptionMpl.toFixed(
+              3,
+            )} Miles/Litre`,
+            fuleConsumptionLpmUnit: `${_fuleConsumptionLpm.toFixed(
+              3,
+            )} Litres/Miles`,
             petrolCostUnit: `${state.petrolCostUnit}`,
             milesToTravelUnit: `${state.milesToTravelUnit}`,
             totalPriceCostUnit: `£ ${_totalPetrolCost.toFixed(3)}`,
           });
-        });
+        };
         runUpdateFuelConsumption();
         break;
       }
-      case 'petrolCostUnit': {
-        const runUpdatePetrolCost = (() => {
-          const _pertrolCost = (val.indexOf('£ ') == 0) ? Number(val.substring(2, val.length)) : Number(val);
+      case "petrolCostUnit": {
+        const runUpdatePetrolCost = () => {
+          const _pertrolCost =
+            val.indexOf("£ ") == 0
+              ? Number(val.substring(2, val.length))
+              : Number(val);
           console.log(`${attr}: ${_pertrolCost}`);
-          const _fuleConsumptionLpm = state.fuleConsumptionLpmUnit.substring(0, state.fuleConsumptionLpmUnit.length - 13);
-          const _milesToTravel = state.milesToTravelUnit.substring(0, state.milesToTravelUnit.length - 8);
-          const _totalPetrolCost = Number(_fuleConsumptionLpm) * _pertrolCost * Number(_milesToTravel);
+          const _fuleConsumptionLpm = state.fuleConsumptionLpmUnit.substring(
+            0,
+            state.fuleConsumptionLpmUnit.length - 13,
+          );
+          const _milesToTravel = state.milesToTravelUnit.substring(
+            0,
+            state.milesToTravelUnit.length - 8,
+          );
+          const _totalPetrolCost =
+            Number(_fuleConsumptionLpm) * _pertrolCost * Number(_milesToTravel);
           setState({
             fuelConsumptionMpgUnit: `${state.fuelConsumptionMpgUnit}`,
             fuelConsumptionMplUnit: `${state.fuelConsumptionMplUnit}`,
@@ -71,17 +97,29 @@ function PetrolExpTips(props:any) {
             milesToTravelUnit: `${state.milesToTravelUnit}`,
             totalPriceCostUnit: `£ ${_totalPetrolCost.toFixed(3)}`,
           });
-        });
+        };
         runUpdatePetrolCost();
         break;
       }
-      case 'milesToTravel': {
-        const runUpdateMilesToTravel = (() => {
-          const _milesToTravel = (val.indexOf(' Mile(s)') == val.length - 8) ? Number(val.substring(0, val.length - 8)) : Number(val);
+      case "milesToTravel": {
+        const runUpdateMilesToTravel = () => {
+          const _milesToTravel =
+            val.indexOf(" Mile(s)") == val.length - 8
+              ? Number(val.substring(0, val.length - 8))
+              : Number(val);
           console.log(`${attr}: ${_milesToTravel}`);
-          const _fuleConsumptionLpm = state.fuleConsumptionLpmUnit.substring(0, state.fuleConsumptionLpmUnit.length - 13);
-          const _pertrolCostUnit = state.petrolCostUnit.substring(2, state.petrolCostUnit.length);
-          const _totalPetrolCost = Number(_fuleConsumptionLpm) * _milesToTravel * Number(_pertrolCostUnit);
+          const _fuleConsumptionLpm = state.fuleConsumptionLpmUnit.substring(
+            0,
+            state.fuleConsumptionLpmUnit.length - 13,
+          );
+          const _pertrolCostUnit = state.petrolCostUnit.substring(
+            2,
+            state.petrolCostUnit.length,
+          );
+          const _totalPetrolCost =
+            Number(_fuleConsumptionLpm) *
+            _milesToTravel *
+            Number(_pertrolCostUnit);
           setState({
             fuelConsumptionMpgUnit: `${state.fuelConsumptionMpgUnit}`,
             fuelConsumptionMplUnit: `${state.fuelConsumptionMplUnit}`,
@@ -90,7 +128,7 @@ function PetrolExpTips(props:any) {
             milesToTravelUnit: `${_milesToTravel.toFixed(3)} Mile(s)`,
             totalPriceCostUnit: `£ ${_totalPetrolCost.toFixed(3)}`,
           });
-        });
+        };
         runUpdateMilesToTravel();
         break;
       }
@@ -98,12 +136,16 @@ function PetrolExpTips(props:any) {
         break;
       }
     }
-  });
+  };
 
   return (
     <div id={modalId} className="modal">
       <div className="modal-content">
-        <span id="modalClose" className="close" onClick={() => handleClose(modalId)}>
+        <span
+          id="modalClose"
+          className="close"
+          onClick={() => handleClose(modalId)}
+        >
           &times;
         </span>
         <div className="row">
@@ -140,16 +182,15 @@ function PetrolExpTips(props:any) {
                 </tr>
                 <tr>
                   <td>
-                    Volume of petrol required to travel per Mile (Litres per Mile)
+                    Volume of petrol required to travel per Mile (Litres per
+                    Mile)
                   </td>
                   <td>
                     {`1 / ${state.fuelConsumptionMplUnit} = ${state.fuleConsumptionLpmUnit}`}
                   </td>
                 </tr>
                 <tr>
-                  <td>
-                    Price of Petrol- £ per Litre (£/L)
-                  </td>
+                  <td>Price of Petrol- £ per Litre (£/L)</td>
                   <td>
                     <input
                       type="text"
@@ -160,9 +201,7 @@ function PetrolExpTips(props:any) {
                   </td>
                 </tr>
                 <tr>
-                  <td>
-                    Distance to travel (Miles)
-                  </td>
+                  <td>Distance to travel (Miles)</td>
                   <td>
                     <input
                       type="text"
@@ -173,9 +212,7 @@ function PetrolExpTips(props:any) {
                   </td>
                 </tr>
                 <tr>
-                  <td>
-                    Total petrol cost (£)
-                  </td>
+                  <td>Total petrol cost (£)</td>
                   <td>
                     {`${state.fuleConsumptionLpmUnit} * ${state.milesToTravelUnit} * ${state.petrolCostUnit} = ${state.totalPriceCostUnit}`}
                   </td>
@@ -193,7 +230,9 @@ function PetrolExpTips(props:any) {
                       </b>
                     </p>
                     <ul>
-                      <li><u>Round Trip Journey Distance</u></li>
+                      <li>
+                        <u>Round Trip Journey Distance</u>
+                      </li>
                       <li>Home to Sacred Heart = 7 Miles</li>
                       <li>Home to ASDA (Southgate) = 8 Miles</li>
                       <li>Home to TESCO (Borehamwood) = 8 Miles</li>
@@ -214,7 +253,6 @@ function PetrolExpTips(props:any) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

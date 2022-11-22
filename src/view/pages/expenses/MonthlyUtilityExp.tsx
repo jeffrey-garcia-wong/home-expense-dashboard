@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent } from "react";
 
 import {
   Chart as ChartJS,
@@ -10,13 +10,13 @@ import {
   PointElement,
   LineElement,
   BarElement,
-} from 'chart.js';
+} from "chart.js";
 
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar, Line } from "react-chartjs-2";
 
-import './MonthlyExp.css';
-import ElectricityExpTips from '../../modal/ElectricityExpTips';
-import PetrolExpTips from '../../modal/PetrolExpTips';
+import "./MonthlyExp.css";
+import ElectricityExpTips from "../../modal/ElectricityExpTips";
+import PetrolExpTips from "../../modal/PetrolExpTips";
 
 ChartJS.register(
   CategoryScale,
@@ -29,7 +29,7 @@ ChartJS.register(
   BarElement,
 );
 
-function MonthlyUtilityExp(props:any) {
+function MonthlyUtilityExp(props: any) {
   const expData = props.expensesData;
 
   const barOptions = {
@@ -50,7 +50,7 @@ function MonthlyUtilityExp(props:any) {
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
       },
       y: {
@@ -58,7 +58,7 @@ function MonthlyUtilityExp(props:any) {
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
         ticks: {
           stepSize: 100,
@@ -68,21 +68,22 @@ function MonthlyUtilityExp(props:any) {
     plugins: {
       tooltip: {
         callbacks: {
-          footer(items:any) {
+          footer(items: any) {
             let total = 0;
             for (let i = 0; i < expData.monthly.datasets.length; i++) {
-              total += expData.monthly.datasets[i].data[items[0].dataIndex] * 100;
+              total +=
+                expData.monthly.datasets[i].data[items[0].dataIndex] * 100;
             }
             return `Total: £ ${(total / 100).toFixed(2)}`;
           },
         },
       },
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: true,
-        text: 'Monthly overall expenses in GBP (£)',
+        text: "Monthly overall expenses in GBP (£)",
       },
     },
   };
@@ -99,21 +100,21 @@ function MonthlyUtilityExp(props:any) {
       },
     },
     interaction: {
-      mode: 'index' as const,
+      mode: "index" as const,
       intersect: false,
     },
     stacked: false,
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
         labels: {
           usePointStyle: true,
         },
       },
       title: {
         display: true,
-        text: 'Utility expenses trend in GBP (£)',
+        text: "Utility expenses trend in GBP (£)",
       },
     },
     scales: {
@@ -121,17 +122,17 @@ function MonthlyUtilityExp(props:any) {
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
       },
       y: {
-        type: 'linear' as const,
+        type: "linear" as const,
         display: true,
-        position: 'left' as const,
+        position: "left" as const,
         grid: {
           drawBorder: true,
           drawOnChartArea: true,
-          color: '#666666',
+          color: "#666666",
         },
         beginAtZero: true,
         ticks: {
@@ -142,46 +143,49 @@ function MonthlyUtilityExp(props:any) {
   };
 
   const lineOptionsAvg = JSON.parse(JSON.stringify(lineOptions));
-  lineOptionsAvg.plugins.title.text = 'Utility expenses average in GBP (£)';
+  lineOptionsAvg.plugins.title.text = "Utility expenses average in GBP (£)";
 
-  const handleTabClick = (ev:MouseEvent) => {
-    const tabItem = (ev.target as Element) as HTMLElement | null;
+  const handleTabClick = (ev: MouseEvent) => {
+    const tabItem = ev.target as Element as HTMLElement | null;
     if (tabItem == null) return;
     // console.log(tabItem.id);
-    tabItem.className = 'tablinks active';
+    tabItem.className = "tablinks active";
 
     const tabItemContent = document.getElementById(`${tabItem.id}-content`);
-    if (tabItemContent != null) tabItemContent.className = 'tabcontent active';
+    if (tabItemContent != null) tabItemContent.className = "tabcontent active";
 
-    const tabContentItems = document.getElementsByClassName('tabcontent active');
+    const tabContentItems =
+      document.getElementsByClassName("tabcontent active");
     if (tabContentItems != null && tabContentItems.length > 0) {
       for (let i = 0; i < tabContentItems.length; i++) {
         if (tabContentItems[i].id.indexOf(tabItem.id) < 0) {
-          tabContentItems[i].className = 'tabcontent';
+          tabContentItems[i].className = "tabcontent";
         }
       }
     }
 
-    const tabLinkItems = document.getElementsByClassName('tablinks active');
+    const tabLinkItems = document.getElementsByClassName("tablinks active");
     if (tabLinkItems != null && tabLinkItems.length > 0) {
       for (let i = 0; i < tabLinkItems.length; i++) {
         if (tabLinkItems[i].id.indexOf(tabItem.id) < 0) {
-          tabLinkItems[i].className = 'tablinks';
+          tabLinkItems[i].className = "tablinks";
         }
       }
     }
   };
 
   const MODAL_PAGE = {
-    ELECTRICITY_EXP_TIPS: 'how-solar-panel-offset-electricity-expense',
-    PETROL_EXP_TIPS: 'how-much-fuel-your-car-spent-to-travel',
+    ELECTRICITY_EXP_TIPS: "how-solar-panel-offset-electricity-expense",
+    PETROL_EXP_TIPS: "how-much-fuel-your-car-spent-to-travel",
   };
 
-  const handleSideMenuClick = (modalPageId:string) => {
+  const handleSideMenuClick = (modalPageId: string) => {
     // console.log(modalPageId);
-    const modalPage = document.getElementById(modalPageId) as HTMLElement | null;
+    const modalPage = document.getElementById(
+      modalPageId,
+    ) as HTMLElement | null;
     if (modalPage != null) {
-      modalPage.style.display = 'block';
+      modalPage.style.display = "block";
     }
   };
 
@@ -191,9 +195,30 @@ function MonthlyUtilityExp(props:any) {
         <h1>Monthly Utility Expenses</h1>
 
         <div className="tab">
-          <button id="average" type="button" className="tablinks active" onClick={handleTabClick}>Average</button>
-          <button id="breakdown" type="button" className="tablinks" onClick={handleTabClick}>Breakdown</button>
-          <button id="trend" type="button" className="tablinks" onClick={handleTabClick}>Trend</button>
+          <button
+            id="average"
+            type="button"
+            className="tablinks active"
+            onClick={handleTabClick}
+          >
+            Average
+          </button>
+          <button
+            id="breakdown"
+            type="button"
+            className="tablinks"
+            onClick={handleTabClick}
+          >
+            Breakdown
+          </button>
+          <button
+            id="trend"
+            type="button"
+            className="tablinks"
+            onClick={handleTabClick}
+          >
+            Trend
+          </button>
         </div>
 
         <div id="average-content" className="tabcontent active">
@@ -213,12 +238,20 @@ function MonthlyUtilityExp(props:any) {
         <div className="aside">
           <h3>Utility Expenses Tips</h3>
           <p>
-            <span className="label" onClick={() => handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)}>
+            <span
+              className="label"
+              onClick={() =>
+                handleSideMenuClick(MODAL_PAGE.ELECTRICITY_EXP_TIPS)
+              }
+            >
               Solar Panel
             </span>
           </p>
           <p>
-            <span className="label" onClick={() => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}>
+            <span
+              className="label"
+              onClick={() => handleSideMenuClick(MODAL_PAGE.PETROL_EXP_TIPS)}
+            >
               Car Petrol
             </span>
           </p>
