@@ -21,7 +21,7 @@
     "@types/faker": "5.5.3",
     "@types/jest": "^27.5.2",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^16.11.47",
+    "@types/node": "^18.11.9",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
@@ -36,10 +36,15 @@
     "typescript": "^4.9.3"
   },
   "scripts": {
+    "mock:data": "npx tsc MockData.ts --outdir build && node ./build/MockData.js",
+    "copy:data": "node -e \"const fs=require('fs'); fs.copyFileSync('./public/data-$env.yml','./public/data.yml');\"",
+    "start:prd": "env=prd npm run copy:data && npm run start",
+    "start:dev": "env=dev npm run copy:data && npm run start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npx eslint ./src"
   },
   "eslintConfig": {
     "extends": [
