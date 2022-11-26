@@ -36,7 +36,7 @@
     "typescript": "^4.9.3"
   },
   "scripts": {
-    "mock:data": "npx tsc MockData.ts --outdir build && node ./build/MockData.js",
+    "mock:data": "npx tsc src/data/service/MockDataWriter.ts --outdir build && node ./build/MockDataWriter.js",
     "copy:data": "node -e \"const fs=require('fs'); fs.copyFileSync('./public/data-$env.yml','./public/data.yml');\"",
     "start:prd": "env=prd npm run copy:data && npm run start",
     "start:dev": "env=dev npm run copy:data && npm run start",

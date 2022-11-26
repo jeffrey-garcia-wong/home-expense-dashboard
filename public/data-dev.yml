@@ -1,516 +1,516 @@
 - month: 1
   fixedExpenses:
     - label: Mortgage
-      amount: 2156
+      amount: 1814
     - label: Home Insurance
-      amount: 20
+      amount: 25
     - label: Property Management
-      amount: 15
+      amount: 18
     - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 202
-    - label: Water
-      amount: 43
-    - label: Gas
-      amount: 72
-    - label: Electricity
-      amount: 44
-  miscExpenses:
-    - label: Supermarket
-      amount: 594
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 229
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 117
-      type: Home Appliances
-    - label: School & Activities
-      amount: 489
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 217
-      type: Home Refurbishments
-- month: 2
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 229
-    - label: Water
-      amount: 42
-    - label: Gas
-      amount: 65
-    - label: Electricity
-      amount: 46
-  miscExpenses:
-    - label: Supermarket
-      amount: 551
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 206
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 140
-      type: Home Appliances
-    - label: School & Activities
-      amount: 362
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 295
-      type: Home Refurbishments
-- month: 3
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 211
-    - label: Water
-      amount: 40
-    - label: Gas
-      amount: 68
-    - label: Electricity
-      amount: 44
-  miscExpenses:
-    - label: Supermarket
-      amount: 544
-      type: Supermarket
-    - label: Outdoor Dining
       amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 213
+    - label: Water
+      amount: 37
+    - label: Gas
+      amount: 71
+    - label: Electricity
+      amount: 43
+  miscExpenses:
+    - label: Supermarket
+      amount: 564
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 202
       type: Outdoor Dining
     - label: Home Appliances
-      amount: 195
+      amount: 131
       type: Home Appliances
     - label: School & Activities
       amount: 435
       type: School & Activities
     - label: Home Refurbishments
-      amount: 203
+      amount: 215
       type: Home Refurbishments
-- month: 4
+- month: 2
   fixedExpenses:
     - label: Mortgage
-      amount: 2156
+      amount: 1814
     - label: Home Insurance
-      amount: 20
+      amount: 25
     - label: Property Management
-      amount: 15
+      amount: 18
     - label: Council Tax
-      amount: 203
+      amount: 233
     - label: Broadband
-      amount: 32
+      amount: 33
     - label: Mobile SIM
-      amount: 21
+      amount: 20
     - label: Car Insurance
-      amount: 63
+      amount: 62
     - label: Road Tax
-      amount: 17
+      amount: 18
   utilityExpenses:
     - label: Petrol
-      amount: 229
-    - label: Water
-      amount: 37
-    - label: Gas
-      amount: 73
-    - label: Electricity
-      amount: 47
-  miscExpenses:
-    - label: Supermarket
-      amount: 506
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 208
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 249
-      type: Home Appliances
-    - label: School & Activities
-      amount: 392
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 294
-      type: Home Refurbishments
-- month: 5
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 212
+      amount: 228
     - label: Water
       amount: 36
     - label: Gas
       amount: 67
     - label: Electricity
-      amount: 48
-  miscExpenses:
-    - label: Supermarket
-      amount: 595
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 211
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 221
-      type: Home Appliances
-    - label: School & Activities
-      amount: 396
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 284
-      type: Home Refurbishments
-- month: 6
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 235
-    - label: Water
-      amount: 35
-    - label: Gas
-      amount: 74
-    - label: Electricity
       amount: 46
   miscExpenses:
     - label: Supermarket
-      amount: 574
+      amount: 525
       type: Supermarket
     - label: Outdoor Dining
-      amount: 244
+      amount: 223
       type: Outdoor Dining
     - label: Home Appliances
-      amount: 183
-      type: Home Appliances
-    - label: School & Activities
-      amount: 442
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 216
-      type: Home Refurbishments
-- month: 7
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 221
-    - label: Water
-      amount: 38
-    - label: Gas
-      amount: 71
-    - label: Electricity
-      amount: 42
-  miscExpenses:
-    - label: Supermarket
-      amount: 593
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 246
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 201
-      type: Home Appliances
-    - label: School & Activities
-      amount: 416
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 266
-      type: Home Refurbishments
-- month: 8
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 203
-    - label: Water
-      amount: 40
-    - label: Gas
-      amount: 74
-    - label: Electricity
-      amount: 47
-  miscExpenses:
-    - label: Supermarket
-      amount: 599
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 207
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 150
-      type: Home Appliances
-    - label: School & Activities
-      amount: 464
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 258
-      type: Home Refurbishments
-- month: 9
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 225
-    - label: Water
-      amount: 36
-    - label: Gas
-      amount: 74
-    - label: Electricity
-      amount: 42
-  miscExpenses:
-    - label: Supermarket
-      amount: 502
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 217
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 173
-      type: Home Appliances
-    - label: School & Activities
-      amount: 427
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 283
-      type: Home Refurbishments
-- month: 10
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 207
-    - label: Water
-      amount: 35
-    - label: Gas
-      amount: 73
-    - label: Electricity
-      amount: 43
-  miscExpenses:
-    - label: Supermarket
-      amount: 517
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 209
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 158
-      type: Home Appliances
-    - label: School & Activities
-      amount: 475
-      type: School & Activities
-    - label: Home Refurbishments
-      amount: 251
-      type: Home Refurbishments
-- month: 11
-  fixedExpenses:
-    - label: Mortgage
-      amount: 2156
-    - label: Home Insurance
-      amount: 20
-    - label: Property Management
-      amount: 15
-    - label: Council Tax
-      amount: 203
-    - label: Broadband
-      amount: 32
-    - label: Mobile SIM
-      amount: 21
-    - label: Car Insurance
-      amount: 63
-    - label: Road Tax
-      amount: 17
-  utilityExpenses:
-    - label: Petrol
-      amount: 209
-    - label: Water
-      amount: 43
-    - label: Gas
-      amount: 65
-    - label: Electricity
-      amount: 45
-  miscExpenses:
-    - label: Supermarket
-      amount: 553
-      type: Supermarket
-    - label: Outdoor Dining
-      amount: 222
-      type: Outdoor Dining
-    - label: Home Appliances
-      amount: 220
+      amount: 195
       type: Home Appliances
     - label: School & Activities
       amount: 470
       type: School & Activities
     - label: Home Refurbishments
-      amount: 213
+      amount: 290
       type: Home Refurbishments
-- month: 12
+- month: 3
   fixedExpenses:
     - label: Mortgage
-      amount: 2156
+      amount: 1814
     - label: Home Insurance
-      amount: 20
+      amount: 25
     - label: Property Management
-      amount: 15
+      amount: 18
     - label: Council Tax
-      amount: 203
+      amount: 233
     - label: Broadband
-      amount: 32
+      amount: 33
     - label: Mobile SIM
-      amount: 21
+      amount: 20
     - label: Car Insurance
-      amount: 63
+      amount: 62
     - label: Road Tax
-      amount: 17
+      amount: 18
   utilityExpenses:
     - label: Petrol
-      amount: 242
+      amount: 220
     - label: Water
-      amount: 35
+      amount: 38
+    - label: Gas
+      amount: 72
+    - label: Electricity
+      amount: 41
+  miscExpenses:
+    - label: Supermarket
+      amount: 515
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 244
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 134
+      type: Home Appliances
+    - label: School & Activities
+      amount: 437
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 218
+      type: Home Refurbishments
+- month: 4
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 214
+    - label: Water
+      amount: 38
     - label: Gas
       amount: 66
     - label: Electricity
-      amount: 47
+      amount: 46
   miscExpenses:
     - label: Supermarket
-      amount: 557
+      amount: 572
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 205
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 117
+      type: Home Appliances
+    - label: School & Activities
+      amount: 460
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 285
+      type: Home Refurbishments
+- month: 5
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 229
+    - label: Water
+      amount: 38
+    - label: Gas
+      amount: 69
+    - label: Electricity
+      amount: 44
+  miscExpenses:
+    - label: Supermarket
+      amount: 597
       type: Supermarket
     - label: Outdoor Dining
       amount: 222
       type: Outdoor Dining
     - label: Home Appliances
-      amount: 110
+      amount: 228
       type: Home Appliances
     - label: School & Activities
-      amount: 466
+      amount: 383
       type: School & Activities
     - label: Home Refurbishments
-      amount: 262
+      amount: 265
+      type: Home Refurbishments
+- month: 6
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 230
+    - label: Water
+      amount: 44
+    - label: Gas
+      amount: 68
+    - label: Electricity
+      amount: 40
+  miscExpenses:
+    - label: Supermarket
+      amount: 503
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 240
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 100
+      type: Home Appliances
+    - label: School & Activities
+      amount: 438
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 211
+      type: Home Refurbishments
+- month: 7
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 230
+    - label: Water
+      amount: 36
+    - label: Gas
+      amount: 66
+    - label: Electricity
+      amount: 42
+  miscExpenses:
+    - label: Supermarket
+      amount: 583
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 230
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 242
+      type: Home Appliances
+    - label: School & Activities
+      amount: 446
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 241
+      type: Home Refurbishments
+- month: 8
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 248
+    - label: Water
+      amount: 39
+    - label: Gas
+      amount: 72
+    - label: Electricity
+      amount: 46
+  miscExpenses:
+    - label: Supermarket
+      amount: 541
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 203
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 174
+      type: Home Appliances
+    - label: School & Activities
+      amount: 380
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 211
+      type: Home Refurbishments
+- month: 9
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 239
+    - label: Water
+      amount: 41
+    - label: Gas
+      amount: 66
+    - label: Electricity
+      amount: 45
+  miscExpenses:
+    - label: Supermarket
+      amount: 583
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 202
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 152
+      type: Home Appliances
+    - label: School & Activities
+      amount: 480
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 269
+      type: Home Refurbishments
+- month: 10
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 214
+    - label: Water
+      amount: 36
+    - label: Gas
+      amount: 73
+    - label: Electricity
+      amount: 49
+  miscExpenses:
+    - label: Supermarket
+      amount: 540
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 203
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 213
+      type: Home Appliances
+    - label: School & Activities
+      amount: 376
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 275
+      type: Home Refurbishments
+- month: 11
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 202
+    - label: Water
+      amount: 44
+    - label: Gas
+      amount: 67
+    - label: Electricity
+      amount: 43
+  miscExpenses:
+    - label: Supermarket
+      amount: 548
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 242
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 235
+      type: Home Appliances
+    - label: School & Activities
+      amount: 464
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 252
+      type: Home Refurbishments
+- month: 12
+  fixedExpenses:
+    - label: Mortgage
+      amount: 1814
+    - label: Home Insurance
+      amount: 25
+    - label: Property Management
+      amount: 18
+    - label: Council Tax
+      amount: 233
+    - label: Broadband
+      amount: 33
+    - label: Mobile SIM
+      amount: 20
+    - label: Car Insurance
+      amount: 62
+    - label: Road Tax
+      amount: 18
+  utilityExpenses:
+    - label: Petrol
+      amount: 241
+    - label: Water
+      amount: 43
+    - label: Gas
+      amount: 70
+    - label: Electricity
+      amount: 49
+  miscExpenses:
+    - label: Supermarket
+      amount: 512
+      type: Supermarket
+    - label: Outdoor Dining
+      amount: 229
+      type: Outdoor Dining
+    - label: Home Appliances
+      amount: 146
+      type: Home Appliances
+    - label: School & Activities
+      amount: 463
+      type: School & Activities
+    - label: Home Refurbishments
+      amount: 250
       type: Home Refurbishments

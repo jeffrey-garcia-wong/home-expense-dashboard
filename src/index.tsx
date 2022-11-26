@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import SorryPage from "./view/pages/exception/SorryPage";
-import { DataSourceLoader, DataSource } from "./service/DataService";
+import { DataSourceLoader, DataSource } from "./service/RemoteDataService";
 import reportWebVitals from "./reportWebVitals";
 
 const initializeApp = () => {
