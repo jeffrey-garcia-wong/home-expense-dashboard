@@ -496,7 +496,9 @@
       amount: 13.25
     - label: "HP Instant Ink"
       amount: 2.99
-  utilityExpenses: []
+  utilityExpenses:
+    - label: "Petrol"
+      amount: 167.97
   miscExpenses:
     - label: "Bed and Mattress (outstanding)"
       amount: 3161.98
@@ -504,6 +506,21 @@
     - label: "Car Tyres"
       amount: 571
       type: "Home Appliances"
+    - label: "Supermarket"
+      amount: 488.01
+      type: "Supermarket"
+    - label: "Outdoor Dining"
+      amount: 386.89
+      type: "Outdoor Dining"
+    - label: "Audrey Lunch"
+      amount: 50
+      type: "School & Activities"
+    - label: "Audrey Music"
+      amount: 120
+      type: "School & Activities"
+    - label: "Allen Bike Club (monthly attendance)"
+      amount: 28
+      type: "School & Activities"
 - month: 12
   fixedExpenses: []
   utilityExpenses: []
